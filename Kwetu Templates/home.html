@@ -72,10 +72,158 @@
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Learning Today,<br>Leading Tomorrow</h1>
       <h2>We are team of talented kiswahili teachers who provide interactive kiswahili language lessons.</h2>
-      <a href="" class="btn-get-started">Login</a>
-      <a href="" class="btn-get-started">SignUp</a>
+      <a class="btn-get-started" data-toggle="modal" data-target="#LoginModal">LOGIN</a>
+      <a class="btn-get-started" data-toggle="modal" data-target="#SignUpModal">SIGNUP</a>
     </div>
   </section><!-- End Hero -->
+
+  <!--================Model Area =================-->
+  <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="border-radius: 1.5rem; background-color: #04091e;">
+            <div class="book_tabel_item ">
+              <form action="/login/" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <div class='text-center'>
+                    <h2>LOGIN</h2>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="text" class="form-control" style="border-radius: 5rem;" id="username" name="username"
+                      placeholder="USERNAME">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="password" class="form-control" style="border-radius: 5rem;" id="pass1" name="pass1"
+                      placeholder="PASSWORD">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='text-center'>
+                    <input type="checkbox">Remember Me
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='text-center'>
+                    <a href="£">Forgot password? Reset here.</a>
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <div class='text-center'>
+                    <button type="submit" class="book_now_btn button_hover"
+                      style="border-radius: 5rem;"><strong>LOGIN</strong></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div style="border-radius: 1.5rem; background-color: #04091e;">
+            <div class="book_tabel_item ">
+              <form action="/register/" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <div class='text-center'>
+                    <h2>SignUp</h2>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="text" class="form-control" style="border-radius: 5rem;" id="username" name="username"
+                      placeholder="USERNAME" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="text" class="form-control" style="border-radius: 5rem;" id="firstname" name="firstname"
+                      placeholder="FIRST NAME" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="text" class="form-control" style="border-radius: 5rem;" id="lastname" name="lastname"
+                      placeholder="LAST NAME" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="email" class="form-control" style="border-radius: 5rem;" id="email" name="email"
+                      placeholder="EMAIL" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="text" class="form-control" style="border-radius: 5rem;" id="contact" name="contact"
+                      placeholder="CONTACT" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="text" class="form-control" style="border-radius: 5rem;" id="country" name="country"
+                      placeholder="COUNTRY" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="password" class="form-control" style="border-radius: 5rem;" id="pass1" name="pass1"
+                      placeholder="PASSWORD" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='input-group'>
+                    <input type="password" class="form-control" style="border-radius: 5rem;" id="pass2" name="pass2"
+                      placeholder="PASSWORD" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='text-center'>
+                    <input type="checkbox" required=""><strong>I agree to the terms and policies of Baloosh
+                      Hotel.</strong>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class='text-center'>
+                    <button type="submit" class="book_now_btn button_hover"
+                      style="border-radius: 5rem;"><strong>REGISTER</strong></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================Modal Area =================-->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -153,6 +301,18 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    $('#LoginModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+    })
+  </script>
+  
+  <script>
+    $('#SignUpModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+    })
+  </script>
 
 </body>
 
