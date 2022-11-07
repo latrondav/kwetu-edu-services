@@ -466,6 +466,45 @@ h6 {
   border: 2px solid #5fcf80;
 }
 
+.entry-form {
+  background: #baface;
+  border-radius: 100%;
+  text-align: center;
+  padding: 6em;
+  width: 450px;
+  height: auto;
+}
+
+.entry-form h2 {
+  color: rgb(0, 0, 0);
+  margin: 0;
+}
+
+.entry-form .form-control {
+  border: 0;
+  border-bottom: 1px solid;
+  border-radius: 50px;
+  box-shadow: none;
+  height: 45px;
+  margin: 10px 0;
+}
+
+.entry-form .submit-btn {
+  background: #ffffff;
+  border-radius: 50px;
+  border: 0;
+  color: #252020;
+  width: 50%;
+  height: 50px;
+  margin: 30px auto;
+  margin-bottom: 10px;
+}
+
+.entry-form .submit-btn:hover {
+  background: #5fcf80;
+  color: #ffffff;
+}
+
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
