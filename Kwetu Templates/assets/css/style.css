@@ -1195,9 +1195,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Pricing
+# members
 --------------------------------------------------------------*/
-.pricing .box {
+.members .box {
   padding: 20px;
   background: #fff;
   text-align: center;
@@ -1207,7 +1207,7 @@ section {
   overflow: hidden;
 }
 
-.pricing h3 {
+.members h3 {
   font-weight: 400;
   margin: -20px -20px 20px -20px;
   padding: 20px 15px;
@@ -1217,7 +1217,7 @@ section {
   background: #f8f8f8;
 }
 
-.pricing h4 {
+.members h4 {
   font-size: 36px;
   color: #5fcf80;
   font-weight: 600;
@@ -1225,19 +1225,19 @@ section {
   margin-bottom: 20px;
 }
 
-.pricing h4 sup {
+.members h4 sup {
   font-size: 20px;
   top: -15px;
   left: -3px;
 }
 
-.pricing h4 span {
+.members h4 span {
   color: #bababa;
   font-size: 16px;
   font-weight: 300;
 }
 
-.pricing ul {
+.members ul {
   padding: 0;
   list-style: none;
   color: #444444;
@@ -1246,29 +1246,29 @@ section {
   font-size: 14px;
 }
 
-.pricing ul li {
+.members ul li {
   padding-bottom: 16px;
 }
 
-.pricing ul i {
+.members ul i {
   color: #5fcf80;
   font-size: 18px;
   padding-right: 4px;
 }
 
-.pricing ul .na {
+.members ul .na {
   color: #ccc;
   text-decoration: line-through;
 }
 
-.pricing .btn-wrap {
+.members .btn-wrap {
   margin: 20px -20px -20px -20px;
   padding: 20px 15px;
   background: #f8f8f8;
   text-align: center;
 }
 
-.pricing .btn-buy {
+.members .btn-buy {
   background: #5fcf80;
   display: inline-block;
   padding: 8px 35px;
@@ -1282,16 +1282,16 @@ section {
   transition: 0.3s;
 }
 
-.pricing .btn-buy:hover {
+.members .btn-buy:hover {
   background: #3ac162;
 }
 
-.pricing .featured h3 {
+.members .featured h3 {
   color: #fff;
   background: #5fcf80;
 }
 
-.pricing .advanced {
+.members .advanced {
   width: 200px;
   position: absolute;
   top: 18px;
