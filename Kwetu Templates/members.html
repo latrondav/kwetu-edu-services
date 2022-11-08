@@ -44,7 +44,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
   
-      <h1 class="logo me-auto"><a href="home.html">KWETU EDU SERVICES</a></h1>
+      <h1 class="logo me-auto"><a href="home.html">KWETU KISWAHILI SERVICES</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
   
@@ -82,9 +82,35 @@
     <section id="members" class="members">
       <div class="container" data-aos="fade-up">
         <div class="row">
-
-  
-
+          <div class="row table-responsive">
+            <table class="table">
+              <thead>
+                <tr class="text-center">
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>EMAIL</th>
+                  <th>CONTACT</th>
+                  <th>DATE JOINED</th>
+                  <th>STATUS</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                <form action="/viewmember/" method="POST">
+                  <tr class="h6 text-center">
+                    <td><input hidden readonly class="text-center" name="member_id" id="member_id" style="border-radius: 1rem;"
+                        value=""></td>
+                    <td>John Doe</td>
+                    <td>Johndoe@kwetueduservices.com</td>
+                    <td>+256 784 123456</td>
+                    <td>01/01/2022</td>
+                    <td>ACTIVE</td>
+                    <td><button type="submit" class="btn btn-buy" style="border-radius: 5rem;">SAVE</button></td>
+                  </tr>
+                </form>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section><!-- End Members Section -->
