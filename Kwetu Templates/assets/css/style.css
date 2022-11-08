@@ -1346,13 +1346,22 @@ section {
 }
 
 .contact .info .email,
-.contact .info .phone {
+.contact .info .phone,
+.contact .info .social{
   margin-top: 40px;
 }
 
 .contact .info .email:hover i,
 .contact .info .address:hover i,
-.contact .info .phone:hover i {
+.contact .info .phone:hover i,
+.contact .info .social .icon:hover,
+.contact .info .social .twitter:hover i,
+.contact .info .social .facebook:hover i,
+.contact .info .social .instagram:hover i,
+.contact .info .social .linkedin:hover i,
+.contact .info .social .whatsapp:hover i,
+.contact .info .social .youtube:hover i, 
+.contact .info .social .envelope:hover i {
   background: #5fcf80;
   color: #fff;
 }
