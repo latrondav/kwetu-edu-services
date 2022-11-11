@@ -157,7 +157,13 @@ def recorded_events(request):
     return render(request, 'recorded_events.html')
 
 def members(request):
-    return render(request, 'members.html')
+    kwetu_members = User.objects.all()
+
+    context={
+        'kwetu_members': kwetu_members
+    }
+    
+    return render(request, 'members.html', context)
 
 def contact(request):
     if request.method == 'POST':
