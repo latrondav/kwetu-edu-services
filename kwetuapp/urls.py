@@ -3,6 +3,12 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
+    path('login/', views.homelogin),
+    path('signup/', views.homesignup),
+    path('profile/', views.profile),
+    path('updateprofile/', views.updateprofile),
+    path('signout/', views.signout),
+    path('activate/<uidb64>/<token>/', views.activate, name= "activate"),
     path('about/', views.about),
     path('services/', views.services),
     path('team/', views.team),
