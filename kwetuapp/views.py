@@ -77,7 +77,7 @@ def homesignup(request):
         # Email Address Confirmation Email
 
         current_site = get_current_site(request)
-        email_subject = "SICA WELCOME AND ACCOUNT CONFIRMATION"
+        email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
         message = render_to_string('email_confirmation.html', {
             'name': user.first_name,
             'domain': current_site.domain,
@@ -92,7 +92,7 @@ def homesignup(request):
         )
         email.fail_silently = True
         email.send()
-        messages.info(request, "SICA ACCOUNT CREATED, NOW TO LOGIN, PLEASE CHECK YOUR EMAIL TO ACTIVATE ACCOUNT.")
+        messages.info(request, "KWETU ACCOUNT CREATED, NOW TO LOGIN, PLEASE CHECK YOUR EMAIL TO ACTIVATE ACCOUNT.")
         return redirect('/')
 
     return render(request, 'home.html')
@@ -109,10 +109,10 @@ def updateprofile(request):
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
         if profile_form.is_valid():
             profile_form.save()
-            messages.success(request, "YOUR SICA ACCOUNT PROFILE HAS BEEN UPDATED SUCCESSFULLY")
+            messages.success(request, "YOUR KWETU ACCOUNT PROFILE HAS BEEN UPDATED SUCCESSFULLY")
             return redirect('/')
         else:
-            messages.error(request, "SORRY, SICA ACCOUNT UPDATE FAILED, TRY AGAIN LATERf")
+            messages.error(request, "SORRY, KWETU ACCOUNT UPDATE FAILED, TRY AGAIN LATERf")
     else:
         profile_form = ProfileForm(instance=request.user.profile)
     return render(request, "home.html")
@@ -132,10 +132,10 @@ def activate(request, uidb64, token):
     if user is not None and generate_token.check_token(user, token):
         user.is_active = True
         user.save()
-        messages.success(request, "SICA ACCOUNT HAS BEEN SUCCESSFULLY ACTIVATED, PLEASE LOGIN, THANK YOU.")
+        messages.success(request, "KWETU ACCOUNT HAS BEEN SUCCESSFULLY ACTIVATED, PLEASE LOGIN, THANK YOU.")
         return render(request, 'home.html')
     else:
-        messages.info(request, "ACTIVATION FAILED, PLEASE TRY AGAIN!")
+        messages.info(request, "KWETU ACCOUNT ACTIVATION FAILED, PLEASE TRY AGAIN!")
         return redirect('/')
 
 def about(request):
@@ -160,4 +160,14 @@ def members(request):
     return render(request, 'members.html')
 
 def contact(request):
+    if request.method == 'POST':
+        contact_name = request.POST['contact_name']
+        contact_email = request.POST['contact_email']
+        contact_subject = request.POST['contact_subject']
+        contact_message = request.POST['contact_message']
+
+        new_message = Contacts(contact_name = contact_name, contact_email = contact_email, contact_subjectt = contact_subject, contact_message = contact_message)
+        new_message.save()
+        messages.success(request, "MESSAGE SENT, THANK YOU FOR CONTACTING KWETU")
+
     return render(request, 'contact.html')
