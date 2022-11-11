@@ -11,57 +11,215 @@
 
   {% include 'includes/header.html' %}
 
-  <main id="main">
+  {% if user.is_superuser %}
 
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs" data-aos="fade-in">
-      <div class="container">
-        <h2>Upcoming Events</h2>
-        <p>You can get to know of our Upcoming events to enable you prepare and be ready for them.</p>
-      </div>
-    </div><!-- End Breadcrumbs -->
-
-    <!-- ======= Events Section ======= -->
-    <section id="events" class="events">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <div class="col-md-6 d-flex align-items-stretch">
-            <div class="card">
-              <div class="card-img">
-                <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Essay Writing</a></h5>
-                <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
-                <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex align-items-stretch">
-            <div class="card">
-              <div class="card-img">
-                <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Public Speech</a></h5>
-                <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
-                <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
-                <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Upcoming Events</h2>
+          <p>You can get to know of our Upcoming events to enable you prepare and be ready for them.</p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Essay Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
+                  <p class="card-text text-center">Our team wil introduce the language to you.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
               </div>
             </div>
-
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Public Speech</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
+                  <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
+              </div>
+    
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary">Add Upcoming Event</button>
+            </div>
           </div>
-          <div class="text-center">
-            <button class="btn btn-primary">Add Upcoming Event</button>
+    
+        </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
+
+  {% elif user.is_staff %}
+
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Upcoming Events</h2>
+          <p>You can get to know of our Upcoming events to enable you prepare and be ready for them.</p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Essay Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
+                  <p class="card-text text-center">Our team wil introduce the language to you.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Public Speech</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
+                  <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
+              </div>
+    
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary">Add Upcoming Event</button>
+            </div>
+          </div>
+    
+        </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
+
+  {% elif user.is_active %}
+
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Upcoming Events</h2>
+          <p>You can get to know of our Upcoming events to enable you prepare and be ready for them.</p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Essay Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
+                  <p class="card-text text-center">Our team wil introduce the language to you.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Public Speech</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
+                  <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
 
-      </div>
-    </section><!-- End Events Section -->
+  {% else %}
 
-  </main><!-- End #main -->
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Upcoming Events</h2>
+          <p>You can get to know of our Upcoming events to enable you prepare and be ready for them.</p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Essay Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
+                  <p class="card-text text-center">Our team wil introduce the language to you.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Public Speech</a></h5>
+                  <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
+                  <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
+                  <div class="text-center"><a href="#" class="btn btn-success">Join Event</a></div>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+    
+        </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
+
+  {% endif %}
 
   {% include 'includes/footer.html' %}
 

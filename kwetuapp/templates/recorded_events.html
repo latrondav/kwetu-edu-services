@@ -11,63 +11,237 @@
 
   {% include 'includes/header.html' %}
 
-  <main id="main">
+  {% if user.is_superuser %}
 
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs" data-aos="fade-in">
-      <div class="container">
-        <h2>Recorded Events</h2>
-        <p>Our team has provided recoreded uninterupted events which can help in mastering the language. </p>
-      </div>
-    </div><!-- End Breadcrumbs -->
-
-    <!-- ======= Events Section ======= -->
-    <section id="events" class="events">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <div class="col-md-6 d-flex align-items-stretch">
-            <div class="card">
-              <div class="card-img">
-                <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Letter Writing</a></h5>
-                <p class="fst-italic text-center">Tuesday, July 12th</p>
-                <p class="card-text">This event will guide you on how we write letters in Kiswahili</p>
-                <div class="text-center">
-                  <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
-                  <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex align-items-stretch">
-            <div class="card">
-              <div class="card-img">
-                <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Alphabet In Kiswahili</a></h5>
-                <p class="fst-italic text-center">Tuesday, August 09th</p>
-                <p class="card-text">This event wil provide you of ow the Alphabet is on kiswahili</p>
-                <div class="text-center">
-                  <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
-                  <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Recorded Events</h2>
+          <p>Our team has provided recoreded uninterupted events which can help in mastering the language. </p>
         </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Letter Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, July 12th</p>
+                  <p class="card-text">This event will guide you on how we write letters in Kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Alphabet In Kiswahili</a></h5>
+                  <p class="fst-italic text-center">Tuesday, August 09th</p>
+                  <p class="card-text">This event wil provide you of ow the Alphabet is on kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+    
+          </div>
           <div class="text-center">
             <button class="btn btn-primary">Add Recored Event</button>
           </div>
-      </div>
-    </section><!-- End Events Section -->
+        </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
+  
+  {% elif user.is_staff %}
 
-  </main><!-- End #main -->
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Recorded Events</h2>
+          <p>Our team has provided recoreded uninterupted events which can help in mastering the language. </p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Letter Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, July 12th</p>
+                  <p class="card-text">This event will guide you on how we write letters in Kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Alphabet In Kiswahili</a></h5>
+                  <p class="fst-italic text-center">Tuesday, August 09th</p>
+                  <p class="card-text">This event wil provide you of ow the Alphabet is on kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+    
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary">Add Recored Event</button>
+          </div>
+        </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
+  
+  {% elif user.is_active %}
+
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Recorded Events</h2>
+          <p>Our team has provided recoreded uninterupted events which can help in mastering the language. </p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Letter Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, July 12th</p>
+                  <p class="card-text">This event will guide you on how we write letters in Kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Alphabet In Kiswahili</a></h5>
+                  <p class="fst-italic text-center">Tuesday, August 09th</p>
+                  <p class="card-text">This event wil provide you of ow the Alphabet is on kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
+  
+  {% else %}
+  
+    <main id="main">
+    
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs" data-aos="fade-in">
+        <div class="container">
+          <h2>Recorded Events</h2>
+          <p>Our team has provided recoreded uninterupted events which can help in mastering the language. </p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+    
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+    
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-1.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Letter Writing</a></h5>
+                  <p class="fst-italic text-center">Tuesday, July 12th</p>
+                  <p class="card-text">This event will guide you on how we write letters in Kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="card">
+                <div class="card-img">
+                  <img src="{% static 'assets/img/events-2.jpg' %}" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><a href="">Alphabet In Kiswahili</a></h5>
+                  <p class="fst-italic text-center">Tuesday, August 09th</p>
+                  <p class="card-text">This event wil provide you of ow the Alphabet is on kiswahili</p>
+                  <div class="text-center">
+                    <a href="#" class="btn btn-success" style="margin-right: 2px;">Listen Event</a>
+                    <a href="#" class="btn btn-success" style="margin-left: 2px;">Watch Event</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End Events Section -->
+    
+    </main><!-- End #main -->
+
+  {% endif %}
 
   {% include 'includes/footer.html' %}
 

@@ -11,6 +11,19 @@
 
     {% include 'includes/header.html' %}
 
+    {% if user.is_authenticated %}
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+      <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+        <h1>Learning Today,<br>Leading Tomorrow</h1>
+        <h2>We are team of talented kiswahili teachers who provide interactive kiswahili language lesssons.</h2>
+        <a class="btn-get-started" href="services/">Hello Latim, Get Started</a>
+      </div>
+    </section><!-- End Hero -->
+
+    {% else %}
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex justify-content-center align-items-center">
       <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
@@ -94,6 +107,8 @@
       </div>
     </div>
     <!--================Modal Area =================-->
+
+    {% endif %}
 
     {% include 'includes/footer.html' %}
 
