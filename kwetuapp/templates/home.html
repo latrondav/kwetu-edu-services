@@ -47,12 +47,13 @@
           </div>
           <div class="modal-body">
             <div class="entry-form">
-              <form action="#" method="post">
+              <form action="/login/" method="POST">
+                {% csrf_token %}
                 <h2><strong>LOGIN</strong></h2>
 
-                <input type="text" name="username" class="form-control" placeholder="Username" required="">
+                <input type="text"  class="form-control" name="username" id="username" placeholder="Username" required="">
 
-                <input type="password" name="password" id="loginpass" class="form-control" placeholder="Your password" required="">
+                <input type="password" name="pass1" id="loginpass" class="form-control" placeholder="Your password" required="">
 
                 <input type="checkbox" onclick="loginFunction()"><strong>Show Password</strong><br>
 

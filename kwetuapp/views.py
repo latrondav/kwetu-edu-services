@@ -49,15 +49,15 @@ def homesignup(request):
         pass2 = request.POST['pass2']
 
         if User.objects.filter(username=username):
-            messages.error(request, "Student number already exist! Please use your student number, thank you.")
+            messages.error(request, "Username already exist! Please use a different username, thank you.")
             return redirect('/')
 
         if len(username)>10:
-            messages.error(request, "Student number must only be under 10 characters")
+            messages.error(request, "Username must only be under 10 characters")
             return redirect('/')
 
         if not username.isnumeric():
-            messages.error(request, "Student number must only be Numeric!")
+            messages.error(request, "Username should have letters and numbers only!")
             return redirect('/')
 
         if User.objects.filter(email=email):
@@ -71,27 +71,27 @@ def homesignup(request):
         user = User.objects.create_user(username, email, pass1)
         user.first_name = firstname.upper()
         user.last_name = lastname.upper()
-        user.is_active = False
+        user.is_active = True
         user.save()
 
         # Email Address Confirmation Email
 
-        current_site = get_current_site(request)
-        email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
-        message = render_to_string('email_confirmation.html', {
-            'name': user.first_name,
-            'domain': current_site.domain,
-            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            'token': generate_token.make_token(user)
-        })
-        email = EmailMessage(
-            email_subject,
-            message,
-            settings.EMAIL_HOST_USER,
-            [user.email],
-        )
-        email.fail_silently = True
-        email.send()
+        #current_site = get_current_site(request)
+        #email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
+        #message = render_to_string('email_confirmation.html', {
+            #'name': user.first_name,
+            #'domain': current_site.domain,
+            #'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #'token': generate_token.make_token(user)
+        #})
+        #email = EmailMessage(
+            #email_subject,
+            #message,
+            #settings.EMAIL_HOST_USER,
+            #[user.email],
+        #)
+        #email.fail_silently = True
+        #email.send()
         messages.info(request, "KWETU ACCOUNT CREATED, NOW TO LOGIN, PLEASE CHECK YOUR EMAIL TO ACTIVATE ACCOUNT.")
         return redirect('/')
 
