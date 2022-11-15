@@ -181,7 +181,7 @@ def contact(request):
         #to_list = [contact_admin_email, contact_email]
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-        new_message = Contacts(contact_name = contact_name, contact_email = contact_email, contact_subjectt = contact_subject, contact_message = contact_message)
+        new_message = Contacts(contact_name = contact_name, contact_email = contact_email, contact_subject = contact_subject, contact_message = contact_message)
         new_message.save()
         messages.success(request, "MESSAGE SENT, THANK YOU FOR CONTACTING KWETU")
 
