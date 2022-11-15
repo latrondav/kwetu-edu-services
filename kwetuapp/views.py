@@ -171,6 +171,15 @@ def contact(request):
         contact_email = request.POST['contact_email']
         contact_subject = request.POST['contact_subject']
         contact_message = request.POST['contact_message']
+        contact_admin_email = "latrondav@gmail.com"
+
+        # Contact Email
+
+        subject = contact_subject
+        message = "Hello Vetogro Admin!! \n My name is " + contact_name + "\n" + contact_message + "\n\n Thanking you."
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [contact_admin_email, contact_email]
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
 
         new_message = Contacts(contact_name = contact_name, contact_email = contact_email, contact_subjectt = contact_subject, contact_message = contact_message)
         new_message.save()
