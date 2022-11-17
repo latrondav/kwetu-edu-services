@@ -467,7 +467,7 @@ h6 {
 }
 
 .entry-form {
-  background: #baface;
+  background: #7bccee;
   border-radius: 100%;
   text-align: center;
   padding: 6em;
@@ -1322,7 +1322,7 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #ecf9f0;
+  background: #d3e7f0;
   display: flex;
   justify-content: center;
   align-items: center;
