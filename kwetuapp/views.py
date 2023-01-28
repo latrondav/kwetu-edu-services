@@ -22,77 +22,74 @@ def homelogin(request):
         pass1 = request.POST['pass1']
         user = authenticate(username=username, password=pass1)
 
-        try:
-            remember = request.POST['remember-me']
-            if remember:
-                settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
-        except:
-            is_private = False
-            settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+        remember = request.POST.get('remember-me', None)
+        if remember:
+            request.session.set_expiry(None)
+        else:
+            request.session.set_expiry(0)
 
         if user is not None:
-            login(request, user)
-            messages.success(request, "LOGGED IN SUCCESSFULLY!")
+            if user.is_active:
+                login(request, user)
+                messages.success(request, "Logged In Successfully.")
+                return redirect('/')
+            else:
+                messages.error(request, "Account is not activated, Please check your email for activation link or contact admin to activate your accunt.")
+                return redirect('/')
         else:
-            messages.error(request, "BAD CREDENTIALS")
-            return redirect('/')
-
-    return render(request, 'home.html')
+            # check if the user exists
+            try:
+                User.objects.get(username=username)
+                messages.error(request, "Wrong Password, Try Again Or You Can Reset Password.")
+                return redirect('/')
+            except User.DoesNotExist:
+                messages.error(request, "Wrong Username Or Account DoesNot Exist.")
+                return redirect('/')
 
 def homesignup(request):
     if request.method == "POST":
-        firstname = request.POST['firstname']
-        lastname = request.POST['lastname']
-        username = request.POST['username']
-        email = request.POST['email']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        username = request.POST.get('email')
+        email = request.POST.get('email')
+        pass1 = request.POST.get('pass1')
+        pass2 = request.POST.get('pass2')
 
-        if User.objects.filter(username=username):
-            messages.error(request, "Username already exist! Please use a different username, thank you.")
+        if not all([firstname, lastname, username, email, pass1, pass2]):
+            messages.error(request, "All fields are required.")
             return redirect('/')
 
-        if len(username)>10:
-            messages.error(request, "Username must only be under 10 characters")
-            return redirect('/')
-
-        if not username.isalnum():
-            messages.error(request, "Username should have letters and numbers only!")
-            return redirect('/')
-
-        if User.objects.filter(email=email):
-            messages.error(request, "Email already registered!")
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email already registered.")
             return redirect('/')
 
         if pass1 != pass2:
-            messages.error(request, "Passwords didn't match")
+            messages.error(request, "Passwords did not match.")
             return redirect('/')
 
-        user = User.objects.create_user(username, email, pass1)
+        user = User.objects.create_user(username=username, email=email, password=pass1)
         user.first_name = firstname.upper()
         user.last_name = lastname.upper()
-        user.is_active = True
         user.save()
 
         # Email Address Confirmation Email
-
-        #current_site = get_current_site(request)
-        #email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
-        #message = render_to_string('email_confirmation.html', {
-            #'name': user.first_name,
-            #'domain': current_site.domain,
-            #'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            #'token': generate_token.make_token(user)
-        #})
-        #email = EmailMessage(
-            #email_subject,
-            #message,
-            #settings.EMAIL_HOST_USER,
-            #[user.email],
-        #)
-        #email.fail_silently = True
-        #email.send()
-        messages.info(request, "KWETU ACCOUNT CREATED, NOW TO LOGIN, PLEASE CHECK YOUR EMAIL TO ACTIVATE ACCOUNT.")
+        # current_site = get_current_site(request)
+        # email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
+        # message = render_to_string('email_confirmation.html', {
+        #    'name': user.first_name,
+        #    'domain': current_site.domain,
+        #    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        #    'token': generate_token.make_token(user)
+        # })
+        # email = EmailMessage(
+        #    email_subject,
+        #    message,
+        #    settings.EMAIL_HOST_USER,
+        #    [user.email],
+        # )
+        # email.fail_silently = True
+        # email.send()
+        messages.info(request, "KWETU ACCOUNT CREATED. Please check your email to activate your account.")
         return redirect('/')
 
     return render(request, 'home.html')
@@ -119,7 +116,7 @@ def updateprofile(request):
 
 def signout(request):
     logout(request)
-    messages.success(request, "LOGGED OUT SUCCESSFULLY!")
+    messages.success(request, "Logged Out Successfully.")
     return redirect('/')
 
 def activate(request, uidb64, token):
