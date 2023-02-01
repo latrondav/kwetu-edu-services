@@ -37,8 +37,7 @@
     </section><!-- End Hero -->
 
     <!--================Model Area =================-->
-    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel"
-      aria-hidden="true">
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -53,17 +52,17 @@
                 {% csrf_token %}
                   <h2><strong>LOGIN</strong></h2>
 
-                  <input type="email"  class="form-control" name="username" id="username" placeholder="Username" required="">
+                  <input type="email"  class="form-control text-center" name="username" id="username" placeholder="Username" required="">
 
-                  <input type="password" name="pass1" id="loginpass" class="form-control" placeholder="Your password" required="">
+                  <input type="password" name="pass1" id="loginpass" class="form-control text-center" placeholder="Your password" required="">
 
                   <label><input type="checkbox" onclick="loginFunction()"><strong>Show Password</strong></lable><br>
 
                   <label><input type="checkbox" name="remember-me" id="remember-me"><strong>Remember Me</strong></label><br>
 
-                  <a  href="£">Forgot password? Reset here.</a>
+                  <a  href="/resetpasswordform/">Forgot password? Reset here.</a>
 
-                  <button class="submit-btn form-control" id="form-submit">LOGIN</button>
+                  <button class="submit-btn form-control text-center" id="form-submit">LOGIN</button>
               </form>
             </div>
           </div>
@@ -88,15 +87,15 @@
                 {% csrf_token %}
                   <h2><strong>SIGNUP</strong></h2>
 
-                  <input type="text" class="form-control" name="firstname" id="firstname"  placeholder="Surname" required="">
+                  <input type="text" class="form-control text-center" name="firstname" id="firstname"  placeholder="Surname" required="">
 
-                  <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Given Name" required="">
+                  <input type="text" class="form-control text-center" name="lastname" id="lastname" placeholder="Given Name" required="">
               
-                  <input type="email" class="form-control" name="email" id="email"  placeholder="Email" required="">
+                  <input type="email" class="form-control text-center" name="email" id="email"  placeholder="Email" required="">
               
-                  <input type="password" class="form-control" name="pass1" id="signuppass"  placeholder="Your password" required="">
+                  <input type="password" class="form-control text-center" name="pass1" id="signuppass"  placeholder="Your password" required="">
 
-                  <input type="password" class="form-control" name="pass2" id="confirmsignuppass"  placeholder="Confirm Your Password" required="">
+                  <input type="password" class="form-control text-center" name="pass2" id="confirmsignuppass"  placeholder="Confirm Your Password" required="">
 
                   <label><input type="checkbox" onclick="signupFunction()"><strong>Show Password</strong></label><br>
 
