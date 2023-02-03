@@ -9,796 +9,800 @@
 
 <body>
 
-  {% include 'includes/header.html' %}
+  <div class="container">
 
-  {% if user.is_superuser %}
+    {% include 'includes/header.html' %}
 
-    <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>About Us</h2>
-          <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered etc.</p>
-        </div>
-      </div><!-- End Breadcrumbs -->
+    {% if user.is_superuser %}
 
-      <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-
-          <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-              <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-              <h3>All To Know About Kwetu Education Services</h3>
-              <p class="fst-italic">
-                We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into the language and also supply kiswahili language learning materials at the most favourable prices.
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper translations</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with experience and extraordinary development of the language.</li>
-              </ul>
-              <p>
-                At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write, converse and express yourself in Kiswahili Language.
-              </p>
-
-            </div>
+      <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs" data-aos="fade-in">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>About Us</h2>
+            <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered etc.</p>
           </div>
+        </div><!-- End Breadcrumbs -->
 
-        </div>
-      </section><!-- End About Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
 
-      <!-- ======= Counts Section ======= -->
-      <section id="counts" class="counts section-bg">
-        <div class="container">
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>All To Know About Kwetu Education Services</h3>
+                <p class="fst-italic">
+                  We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into the language and also supply kiswahili language learning materials at the most favourable prices.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper translations</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with experience and extraordinary development of the language.</li>
+                </ul>
+                <p>
+                  At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write, converse and express yourself in Kiswahili Language.
+                </p>
 
-          <div class="row counters">
-
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Members</p>
-            </div>
-
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Active Students</p>
-            </div>
-
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Old Students</p>
-            </div>
-
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Services</p>
-            </div>
-
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Events</p>
-            </div>
-
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Team</p>
+              </div>
             </div>
 
           </div>
+        </section><!-- End About Section -->
 
-        </div>
-      </section><!-- End Counts Section -->
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+          <div class="container">
 
-      <!-- ======= Testimonials Section ======= -->
-      <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="fade-up">
+            <div class="row counters">
 
-          <div class="section-title">
-            <h2>Testimonials</h2>
-            <p>What are they saying</p>
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Members</p>
+              </div>
+
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Active Students</p>
+              </div>
+
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Old Students</p>
+              </div>
+
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Services</p>
+              </div>
+
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Events</p>
+              </div>
+
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Team</p>
+              </div>
+
+            </div>
+
           </div>
+        </section><!-- End Counts Section -->
 
-          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+          <div class="container" data-aos="fade-up">
 
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
+            <div class="section-title">
+              <h2>Testimonials</h2>
+              <p>What are they saying</p>
             </div>
-            <div class="swiper-pagination"></div>
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Saul Goodman</h3>
+                      <h4>Ceo &amp; Founder</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Sara Wilsson</h3>
+                      <h4>Designer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Jena Karlis</h3>
+                      <h4>Store Owner</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Matt Brandon</h3>
+                      <h4>Freelancer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                      <h3>John Larson</h3>
+                      <h4>Entrepreneur</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-primary">Add Testimonials</button>
+            </div>
+
           </div>
+        </section><!-- End Testimonials Section -->
 
-          <div class="text-center">
-            <button class="btn btn-primary">Add Testimonials</button>
-          </div>
+      </main><!-- End #main -->
 
-        </div>
-      </section><!-- End Testimonials Section -->
+    {% elif user.is_staff %}
 
-    </main><!-- End #main -->
+      <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs" data-aos="fade-in">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>About Us</h2>
+            <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered
+              etc.</p>
+          </div>
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>All To Know About Kwetu Education Services</h3>
+                <p class="fst-italic">
+                  We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into
+                  the language and also supply kiswahili language learning materials at the most favourable prices.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper
+                    translations</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.
+                  </li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with
+                    experience and extraordinary development of the language.</li>
+                </ul>
+                <p>
+                  At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write,
+                  converse and express yourself in Kiswahili Language.
+                </p>
+      
+              </div>
+            </div>
+      
+          </div>
+        </section><!-- End About Section -->
+      
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+          <div class="container">
+      
+            <div class="row counters">
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Members</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Active Students</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Old Students</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Services</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Events</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Team</p>
+              </div>
+      
+            </div>
+      
+          </div>
+        </section><!-- End Counts Section -->
+      
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="section-title">
+              <h2>Testimonials</h2>
+              <p>What are they saying</p>
+            </div>
+      
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper">
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Saul Goodman</h3>
+                      <h4>Ceo &amp; Founder</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                        quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Sara Wilsson</h3>
+                      <h4>Designer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                        quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Jena Karlis</h3>
+                      <h4>Store Owner</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                        tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Matt Brandon</h3>
+                      <h4>Freelancer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                        minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                      <h3>John Larson</h3>
+                      <h4>Entrepreneur</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                        labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+      
+            <div class="text-center">
+              <button class="btn btn-primary">Add Testimonials</button>
+            </div>
+      
+          </div>
+        </section><!-- End Testimonials Section -->
+      
+      </main><!-- End #main -->
 
-  {% elif user.is_staff %}
+    {% elif user.is_active %}
 
-    <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>About Us</h2>
-          <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered
-            etc.</p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-              <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-              <h3>All To Know About Kwetu Education Services</h3>
-              <p class="fst-italic">
-                We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into
-                the language and also supply kiswahili language learning materials at the most favourable prices.
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper
-                  translations</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.
-                </li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with
-                  experience and extraordinary development of the language.</li>
-              </ul>
-              <p>
-                At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write,
-                converse and express yourself in Kiswahili Language.
-              </p>
-    
-            </div>
+      <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs" data-aos="fade-in">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>About Us</h2>
+            <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered
+              etc.</p>
           </div>
-    
-        </div>
-      </section><!-- End About Section -->
-    
-      <!-- ======= Counts Section ======= -->
-      <section id="counts" class="counts section-bg">
-        <div class="container">
-    
-          <div class="row counters">
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Members</p>
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>All To Know About Kwetu Education Services</h3>
+                <p class="fst-italic">
+                  We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into
+                  the language and also supply kiswahili language learning materials at the most favourable prices.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper
+                    translations</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.
+                  </li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with
+                    experience and extraordinary development of the language.</li>
+                </ul>
+                <p>
+                  At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write,
+                  converse and express yourself in Kiswahili Language.
+                </p>
+      
+              </div>
             </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Active Students</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Old Students</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Services</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Events</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Team</p>
-            </div>
-    
+      
           </div>
-    
-        </div>
-      </section><!-- End Counts Section -->
-    
-      <!-- ======= Testimonials Section ======= -->
-      <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="section-title">
-            <h2>Testimonials</h2>
-            <p>What are they saying</p>
+        </section><!-- End About Section -->
+      
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+          <div class="container">
+      
+            <div class="row counters">
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Members</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Active Students</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Old Students</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Services</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Events</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Team</p>
+              </div>
+      
+            </div>
+      
           </div>
-    
-          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-                      quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
+        </section><!-- End Counts Section -->
+      
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="section-title">
+              <h2>Testimonials</h2>
+              <p>What are they saying</p>
+            </div>
+      
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper">
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Saul Goodman</h3>
+                      <h4>Ceo &amp; Founder</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                        quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                      quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Sara Wilsson</h3>
+                      <h4>Designer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                        quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                      tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Jena Karlis</h3>
+                      <h4>Store Owner</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                        tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                      minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                      <h3>Matt Brandon</h3>
+                      <h4>Freelancer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                        minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-                      labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                      <h3>John Larson</h3>
+                      <h4>Entrepreneur</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                        labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-    
-          <div class="text-center">
-            <button class="btn btn-primary">Add Testimonials</button>
-          </div>
-    
-        </div>
-      </section><!-- End Testimonials Section -->
-    
-    </main><!-- End #main -->
-
-  {% elif user.is_active %}
-
-    <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>About Us</h2>
-          <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered
-            etc.</p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-              <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-              <h3>All To Know About Kwetu Education Services</h3>
-              <p class="fst-italic">
-                We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into
-                the language and also supply kiswahili language learning materials at the most favourable prices.
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper
-                  translations</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.
-                </li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with
-                  experience and extraordinary development of the language.</li>
-              </ul>
-              <p>
-                At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write,
-                converse and express yourself in Kiswahili Language.
-              </p>
-    
-            </div>
-          </div>
-    
-        </div>
-      </section><!-- End About Section -->
-    
-      <!-- ======= Counts Section ======= -->
-      <section id="counts" class="counts section-bg">
-        <div class="container">
-    
-          <div class="row counters">
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Members</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Active Students</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Old Students</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Services</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Events</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Team</p>
-            </div>
-    
-          </div>
-    
-        </div>
-      </section><!-- End Counts Section -->
-    
-      <!-- ======= Testimonials Section ======= -->
-      <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="section-title">
-            <h2>Testimonials</h2>
-            <p>What are they saying</p>
-          </div>
-    
-          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-                      quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                      quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                      tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                      minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-                      labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section><!-- End Testimonials Section -->
-    
-    </main><!-- End #main -->
-
-  {% else %}
-
-    <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>About Us</h2>
-          <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered
-            etc.</p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-              <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" style="border-radius: 2rem;" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-              <h3>All To Know About Kwetu Education Services</h3>
-              <p class="fst-italic">
-                We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into
-                the language and also supply kiswahili language learning materials at the most favourable prices.
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper
-                  translations</li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.
-                </li>
-                <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with
-                  experience and extraordinary development of the language.</li>
-              </ul>
-            </div>
-
-            <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-left" data-aos-delay="100">
-              <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" style="border-radius: 2rem;" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-1 order-lg-2 content">
-              <p>Kwetu Mradi a partner company of Kwetu Kiswahili Services company as the following the objectives:</p>
-              <ul>
-                <li><i class="bi bi-check-circle"></i> To carry out the business of facilitating the teaching of Kiswahili in the
-                  region.</li>
-                <li><i class="bi bi-check-circle"></i>To carry out a number of language services including editing, translations and
-                  interpreting the various content.</li>
-                <li><i class="bi bi-check-circle"></i> To develop, produce and supply language reading materials.
-                </li>
-                <li><i class="bi bi-check-circle"></i>To preserve and enhance the visibility of Kiswahili culture, tradition in the
-                  community.</li>
-              </ul>
-              <p>
-                At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write,
-                converse and express yourself in Kiswahili Language.
-              </p>
+                </div><!-- End testimonial item -->
+      
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
-    
-        </div>
-      </section><!-- End About Section -->
-    
-      <!-- ======= Counts Section ======= -->
-      <section id="counts" class="counts section-bg">
-        <div class="container">
-    
-          <div class="row counters">
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Members</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Active Students</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Old Students</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Services</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Events</p>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 text-center">
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Team</p>
-            </div>
-    
-          </div>
-    
-        </div>
-      </section><!-- End Counts Section -->
-    
-      <!-- ======= Testimonials Section ======= -->
-      <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="section-title">
-            <h2>Testimonials</h2>
-            <p>What are they saying</p>
-          </div>
-    
-          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" style="border-radius: 10rem;" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-                      quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                      quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
-                      tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
-                      minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-              <div class="swiper-slide">
-                <div class="testimonial-wrap">
-                  <div class="testimonial-item">
-                    <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                      <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                      Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-                      labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                      <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-    
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section><!-- End Testimonials Section -->
-    
-    </main><!-- End #main -->
+        </section><!-- End Testimonials Section -->
+      
+      </main><!-- End #main -->
 
-  {% endif %}
+    {% else %}
 
-  {% include 'includes/footer.html' %}
+      <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs" data-aos="fade-in">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>About Us</h2>
+            <p>Get to know more about us with the information below, such as what we do, students enrolled, courses delivered
+              etc.</p>
+          </div>
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" style="border-radius: 2rem;" alt="">
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>All To Know About Kwetu Education Services</h3>
+                <p class="fst-italic">
+                  We are a team of proffessional Kiswahili Teachers who teach the language, translate content, interprete into
+                  the language and also supply kiswahili language learning materials at the most favourable prices.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, you will learn to speak Kiswahili fluently.</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we eliminate language barrier with direct and proper
+                    translations</li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, we can interprete and elaborate on content in kiswahili.
+                  </li>
+                  <li><i class="bi bi-check-circle"></i> At Kwetu, get reliable kiswahili learning content from our team with
+                    experience and extraordinary development of the language.</li>
+                </ul>
+              </div>
+
+              <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-left" data-aos-delay="100">
+                <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" style="border-radius: 2rem;" alt="">
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0 order-1 order-lg-2 content">
+                <p>Kwetu Mradi a partner company of Kwetu Kiswahili Services company as the following the objectives:</p>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> To carry out the business of facilitating the teaching of Kiswahili in the
+                    region.</li>
+                  <li><i class="bi bi-check-circle"></i>To carry out a number of language services including editing, translations and
+                    interpreting the various content.</li>
+                  <li><i class="bi bi-check-circle"></i> To develop, produce and supply language reading materials.
+                  </li>
+                  <li><i class="bi bi-check-circle"></i>To preserve and enhance the visibility of Kiswahili culture, tradition in the
+                    community.</li>
+                </ul>
+                <p>
+                  At the end of any of our course, we believe and guarantee that you will be able to pronounce, read, write,
+                  converse and express yourself in Kiswahili Language.
+                </p>
+              </div>
+            </div>
+      
+          </div>
+        </section><!-- End About Section -->
+      
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+          <div class="container">
+      
+            <div class="row counters">
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Members</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Active Students</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Old Students</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Services</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Events</p>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                  class="purecounter"></span>
+                <p>Team</p>
+              </div>
+      
+            </div>
+      
+          </div>
+        </section><!-- End Counts Section -->
+      
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="section-title">
+              <h2>Testimonials</h2>
+              <p>What are they saying</p>
+            </div>
+      
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper">
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" style="border-radius: 10rem;" alt="">
+                      <h3>Saul Goodman</h3>
+                      <h4>Ceo &amp; Founder</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
+                        quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
+                      <h3>Sara Wilsson</h3>
+                      <h4>Designer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                        quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
+                      <h3>Jena Karlis</h3>
+                      <h4>Store Owner</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                        tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
+                      <h3>Matt Brandon</h3>
+                      <h4>Freelancer</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                        minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+                <div class="swiper-slide">
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" style="border-radius: 10rem;"  alt="">
+                      <h3>John Larson</h3>
+                      <h4>Entrepreneur</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                        labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div><!-- End testimonial item -->
+      
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </section><!-- End Testimonials Section -->
+      
+      </main><!-- End #main -->
+
+    {% endif %}
+
+    {% include 'includes/footer.html' %}
+    
+  </div>
 
 </body>
 

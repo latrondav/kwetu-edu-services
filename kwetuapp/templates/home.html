@@ -9,110 +9,116 @@
 
   <body>
 
-    {% include 'includes/header.html' %}
+    <div class="container">
 
-    {% if user.is_authenticated %}
+      {% include 'includes/header.html' %}
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex justify-content-center align-items-center">
-      <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-        <h1>Learning Today,<br>Leading Tomorrow</h1>
-        <h2>We are team of talented kiswahili teachers who provide interactive kiswahili language lesssons.</h2>
-        <a class="btn-get-started" href="services/">Hello {{ user.first_name }}, Get Started</a>
-      </div>
-    </section><!-- End Hero -->
+      {% if user.is_authenticated %}
 
-    {% else %}
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex justify-content-center align-items-center">
-      <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-        <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-        <h1>Learning Today,<br>Leading Tomorrow</h1>
-        <h2>We are team of talented kiswahili teachers who provide interactive kiswahili language lesssons.</h2>
-        <a class="btn-get-started" data-toggle="modal" data-target="#LoginModal">LOGIN</a>
-        <a class="btn-get-started" data-toggle="modal" data-target="#SignUpModal">SIGNUP</a>
-      </div>
-    </section><!-- End Hero -->
-
-    <!--================Model Area =================-->
-    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
-              aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex justify-content-center align-items-center">
+          <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h1>Learning Today,<br>Leading Tomorrow</h1>
+            <h2>We are team of talented kiswahili teachers who provide interactive kiswahili language lesssons.</h2>
+            <a class="btn-get-started" href="services/">Hello {{ user.first_name }}, Get Started</a>
           </div>
-          <div class="modal-body">
-            <div class="entry-form">
-              <form action="/login/" method="POST">
-                {% csrf_token %}
-                  <h2><strong>LOGIN</strong></h2>
+        </section>
+        <!-- End Hero -->
 
-                  <input type="email"  class="form-control text-center" name="username" id="username" placeholder="Username" required="">
+      {% else %}
 
-                  <input type="password" name="pass1" id="loginpass" class="form-control text-center" placeholder="Your password" required="">
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex justify-content-center align-items-center">
+          <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h1>Learning Today,<br>Leading Tomorrow</h1>
+            <h2>We are team of talented kiswahili teachers who provide interactive kiswahili language lesssons.</h2>
+            <a class="btn-get-started" data-toggle="modal" data-target="#LoginModal">LOGIN</a>
+            <a class="btn-get-started" data-toggle="modal" data-target="#SignUpModal">SIGNUP</a>
+          </div>
+        </section>
+        <!-- End Hero -->
 
-                  <label><input type="checkbox" onclick="loginFunction()"><strong>Show Password</strong></lable><br>
+        <!--================Model Area =================-->
+        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="entry-form">
+                  <form action="/login/" method="POST">
+                    {% csrf_token %}
+                      <h2><strong>LOGIN</strong></h2>
 
-                  <label><input type="checkbox" name="remember-me" id="remember-me"><strong>Remember Me</strong></label><br>
+                      <input type="email"  class="form-control text-center" name="username" id="username" placeholder="Username" required="">
 
-                  <a  href="/resetpasswordform/">Forgot password? Reset here.</a>
+                      <input type="password" name="pass1" id="loginpass" class="form-control text-center" placeholder="Your password" required="">
 
-                  <button class="submit-btn form-control text-center" id="form-submit">LOGIN</button>
-              </form>
+                      <label><input type="checkbox" onclick="loginFunction()"><strong>Show Password</strong></lable><br>
+
+                      <label><input type="checkbox" name="remember-me" id="remember-me"><strong>Remember Me</strong></label><br>
+
+                      <a  href="/resetpasswordform/">Forgot password? Reset here.</a>
+
+                      <button class="submit-btn form-control text-center" id="form-submit">LOGIN</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    
-    
-    <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
-              aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="entry-form">
-              <form action="/signup/" method="POST">
-                {% csrf_token %}
-                  <h2><strong>SIGNUP</strong></h2>
+        
+        
+        <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="entry-form">
+                  <form action="/signup/" method="POST">
+                    {% csrf_token %}
+                      <h2><strong>SIGNUP</strong></h2>
 
-                  <input type="text" class="form-control text-center" name="firstname" id="firstname"  placeholder="Surname" required="">
+                      <input type="text" class="form-control text-center" name="firstname" id="firstname"  placeholder="Surname" required="">
 
-                  <input type="text" class="form-control text-center" name="lastname" id="lastname" placeholder="Given Name" required="">
-              
-                  <input type="email" class="form-control text-center" name="email" id="email"  placeholder="Email" required="">
-              
-                  <input type="password" class="form-control text-center" name="pass1" id="signuppass"  placeholder="Your password" required="">
+                      <input type="text" class="form-control text-center" name="lastname" id="lastname" placeholder="Given Name" required="">
+                  
+                      <input type="email" class="form-control text-center" name="email" id="email"  placeholder="Email" required="">
+                  
+                      <input type="password" class="form-control text-center" name="pass1" id="signuppass"  placeholder="Your password" required="">
 
-                  <input type="password" class="form-control text-center" name="pass2" id="confirmsignuppass"  placeholder="Confirm Your Password" required="">
+                      <input type="password" class="form-control text-center" name="pass2" id="confirmsignuppass"  placeholder="Confirm Your Password" required="">
 
-                  <label><input type="checkbox" onclick="signupFunction()"><strong>Show Password</strong></label><br>
+                      <label><input type="checkbox" onclick="signupFunction()"><strong>Show Password</strong></label><br>
 
-                  <label><input type="checkbox" required=""><strong>I agree to the terms and policies of Kwetu Education Services.</strong></label>
-              
-                  <button class="submit-btn form-control" id="form-submit">SignUp</button>
-              </form>
+                      <label><input type="checkbox" required=""><strong>I agree to the terms and policies of Kwetu Education Services.</strong></label>
+                  
+                      <button class="submit-btn form-control" id="form-submit">SignUp</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        <!--================Modal Area =================-->
+
+      {% endif %}
+
+      {% include 'includes/footer.html' %}
+
     </div>
-    <!--================Modal Area =================-->
-
-    {% endif %}
-
-    {% include 'includes/footer.html' %}
 
     <script>
       $('#LoginModal').on('show.bs.modal', function (event) {
