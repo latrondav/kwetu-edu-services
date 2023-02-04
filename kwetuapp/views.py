@@ -118,7 +118,7 @@ def updateprofile(request):
         profile_form = ProfileForm(instance=request.user.profile)
     return render(request, 'home.html')
 
-# def update_profile(request):
+# def updateprofile(request):
 #     if request.method == 'POST':
 #         user_form = UserUpdateForm(request.POST, instance=request.user)
 #         profile_form = ProfileForm(request.POST, instance=request.user.profile)
@@ -127,17 +127,39 @@ def updateprofile(request):
 #             if user_form.cleaned_data.get('email') != request.user.email:
 #                 email_changed = True
 
-#             user_form.save()
-#             profile_form.save()
+#                 user_form.save()
+#                 profile_form.save()
 
-#             if email_changed:
-#                 # Deactivate user account
-#                 request.user.is_active = False
-#                 request.user.save()
-#                 # Log out user
-#                 logout(request)
-#                 # Send reactivation email
-#                 # ...
+#                 if email_changed:
+#                     # Deactivate user account
+#                     request.user.is_active = False
+#                     request.user.save()
+#                     # Log out user
+#                     logout(request)
+#                     # Send reactivation email
+#                     current_site = get_current_site(request)
+#                     email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
+#                     message = render_to_string('email_confirmation.html', {
+#                         'name': request.user.first_name,
+#                         'domain': current_site.domain,
+#                         'uid': urlsafe_base64_encode(force_bytes(request.user.pk)),
+#                         'token': generate_token.make_token(request.user)
+#                     })
+#                     email = EmailMessage(
+#                         email_subject,
+#                         message,
+#                         settings.EMAIL_HOST_USER,
+#                         [request.user.email],
+#                     )
+#                     email.fail_silently = True
+#                     email.send()
+
+#                     # Deactivate user account
+#                     request.user.is_active = False
+#                     request.user.save()
+#                     # Log out user
+#                     logout(request)
+
 #                 messages.success(request, "Your email has been updated. Please check your email to reactivate your account.")
 #             else:
 #                 messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
@@ -147,7 +169,7 @@ def updateprofile(request):
 #     else:
 #         user_form = UserUpdateForm(instance=request.user)
 #         profile_form = ProfileForm(instance=request.user.profile)
-#     return render(request, 'update_user.html', {'user_form': user_form, 'profile_form': profile_form})
+#     return render(request, 'update_user.html')
 
 def signout(request):
     logout(request)
