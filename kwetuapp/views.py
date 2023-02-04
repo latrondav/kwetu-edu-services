@@ -73,26 +73,28 @@ def homesignup(request):
         user.save()
 
         # Email Address Confirmation Email
-        # current_site = get_current_site(request)
-        # email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
-        # message = render_to_string('email_confirmation.html', {
-        #    'name': user.first_name,
-        #    'domain': current_site.domain,
-        #    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        #    'token': generate_token.make_token(user)
-        # })
-        # email = EmailMessage(
-        #    email_subject,
-        #    message,
-        #    settings.EMAIL_HOST_USER,
-        #    [user.email],
-        # )
-        # email.fail_silently = True
-        # email.send()
-        messages.info(request, "KWETU ACCOUNT CREATED. Please check your email to activate your account.")
-        return redirect('/')
+        current_site = get_current_site(request)
+        email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
+        message = render_to_string('email_confirmation.html', {
+           'name': user.first_name,
+           'domain': current_site.domain,
+           'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+           'token': generate_token.make_token(user)
+        })
+        email = EmailMessage(
+           email_subject,
+           message,
+           settings.EMAIL_HOST_USER,
+           [user.email],
+        )
+        email.fail_silently = True
+        email.send()
 
-    return render(request, 'home.html')
+        messages.success(request, "Kwetu Account Created. Please check your email to activate your account.")
+        return redirect('/')
+    else:
+        messages.error(request, "Failed To Create Kwetu Account, Please Try Again Later Or Contact Tech Team.")
+        return render(request, 'home.html')
 
 def profile(request):
     context = {
@@ -116,6 +118,37 @@ def updateprofile(request):
         profile_form = ProfileForm(instance=request.user.profile)
     return render(request, 'home.html')
 
+# def update_profile(request):
+#     if request.method == 'POST':
+#         user_form = UserUpdateForm(request.POST, instance=request.user)
+#         profile_form = ProfileForm(request.POST, instance=request.user.profile)
+#         if user_form.is_valid() and profile_form.is_valid():
+#             email_changed = False
+#             if user_form.cleaned_data.get('email') != request.user.email:
+#                 email_changed = True
+
+#             user_form.save()
+#             profile_form.save()
+
+#             if email_changed:
+#                 # Deactivate user account
+#                 request.user.is_active = False
+#                 request.user.save()
+#                 # Log out user
+#                 logout(request)
+#                 # Send reactivation email
+#                 # ...
+#                 messages.success(request, "Your email has been updated. Please check your email to reactivate your account.")
+#             else:
+#                 messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
+#             return redirect('/')
+#         else:
+#             messages.error(request, "Sorry, your account update failed. Please try again later.")
+#     else:
+#         user_form = UserUpdateForm(instance=request.user)
+#         profile_form = ProfileForm(instance=request.user.profile)
+#     return render(request, 'update_user.html', {'user_form': user_form, 'profile_form': profile_form})
+
 def signout(request):
     logout(request)
     messages.success(request, "Logged Out Successfully.")
@@ -131,10 +164,10 @@ def activate(request, uidb64, token):
     if user is not None and generate_token.check_token(user, token):
         user.is_active = True
         user.save()
-        messages.success(request, "KWETU ACCOUNT HAS BEEN SUCCESSFULLY ACTIVATED, PLEASE LOGIN, THANK YOU.")
+        messages.success(request, "Kwetu Account Has Been Successfully Activated, Please Proceed To Login, Thank You.")
         return render(request, 'home.html')
     else:
-        messages.info(request, "KWETU ACCOUNT ACTIVATION FAILED, PLEASE TRY AGAIN!")
+        messages.info(request, "Kwetu Account Activation Failed, Please Contact Tech Team And Try Again.")
         return redirect('/')
 
 def about(request):

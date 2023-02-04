@@ -1,0 +1,14 @@
+{% autoescape off %}
+
+Welcome to Panda Bus Booking Agency.
+
+Hello {{ name }}!
+
+please confirm your email by clicking on the following link.
+
+Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+Yours Sincerely,
+PANDA ADMIN
+
+{% endautoescape %}
