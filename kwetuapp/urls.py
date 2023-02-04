@@ -14,6 +14,8 @@ urlpatterns = [
     path('addnewtestimonial/', views.add_new_testimonial),
     path('deletetestimonial/<testimonialid>/', views.delete_testimonial),
     path('services/', views.services),
+    path('addnewservice/', views.add_new_service),
+    path('deleteservice/<serviceid>/', views.delete_service),
     path('team/', views.team),
     path('upcoming_events/', views.upcoming_events),
     path('past_events/', views.past_events),

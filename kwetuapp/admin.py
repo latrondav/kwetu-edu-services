@@ -9,5 +9,5 @@ class ContactAdmin(admin.ModelAdmin):
     ordering = ('contact_name',)
     search_fields = ('contact_name', 'contact_email',)
 
-
 admin.site.register(Testimonial)
+admin.site.register(Service)

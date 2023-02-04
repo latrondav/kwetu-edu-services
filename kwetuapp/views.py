@@ -157,8 +157,8 @@ def add_new_testimonial(request):
     
 def delete_testimonial(request, testimonialid):
     if testimonialid:
-        del_testimonal = Testimonial.objects.filter(id=testimonialid)
-        del_testimonal.delete()
+        del_testimonial = Testimonial.objects.filter(id=testimonialid)
+        del_testimonial.delete()
         messages.success(request, "Testimonial Deleted Successfully")
         return redirect('/about/')
     else:
@@ -166,7 +166,34 @@ def delete_testimonial(request, testimonialid):
         return render(request, 'about.html')
     
 def services(request):
-    return render(request, 'services.html')
+    context = {
+        'Services' : Service.objects.all(),
+    }
+    return render(request, 'services.html', context)
+
+def add_new_service(request):
+    if request.method == 'POST':
+        simage = request.FILES['simage']
+        stitle = request.POST['stitle']
+        sdescription = request.POST['sdescription']
+
+        new_service = Service(simage=simage, stitle=stitle, sdescription=sdescription)
+        new_service.save()
+        messages.success(request, "New Service Has Been Added Successfully.")
+        return redirect('/services/')
+    else:
+        messages.error(request, "Failure To Add New Service, Please Contact Tech Team And Try Again Later.")
+        return render(request, 'services.html')
+    
+def delete_service(request, serviceid):
+    if serviceid:
+        del_service = Service.objects.filter(id=serviceid)
+        del_service.delete()
+        messages.success(request, "Service Deleted Successfully")
+        return redirect('/services/')
+    else:
+        messages.error(request, "Failed To Delete Service, Please Contact Tech Team And Try Again")
+        return render(request, 'services.html')
 
 def team(request):
     return render(request, 'team.html')

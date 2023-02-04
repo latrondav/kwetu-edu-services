@@ -26,3 +26,12 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return str(self.tname)
+
+
+class Service(models.Model):
+    simage = models.ImageField(upload_to='Services Images', null=False, blank=False, default='service.jpg')
+    stitle = models.CharField(max_length=255, null=False, blank=False)
+    sdescription = models.TextField(max_length=255)
+
+    def __str__(self):
+        return str(self.stitle)

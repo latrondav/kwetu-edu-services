@@ -34,80 +34,51 @@
 
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
-              <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                <div class="course-item">
-                  <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      
+              {% for service in Services %}
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch mb-3">
+                  <div class="course-item" style="border-radius: 2rem;">
+                    <img src="{{ service.simage.url }}" class="img-fluid" alt="..." style="border-radius: 2rem; height: 200px; width: 100%;">
+                    <div class="course-content">
+
+                      <h3 class="text-center">{{ service.stitle }}</h3>
+
+                      <p align="justify">
+                        {{ service.sdescription }}<br>
+                      </p>
+
+                      <div class="text-center mt-2">
+                        <a href="/contact/" class="btn btn-sm btn-success" style="border-radius: 2rem;">Contact Us To Get Service</a>
+                      </div>
+
+                      {% if user.is_superuser %}
+                        <div class="text-center mt-2">
+                          <a class="btn btn-sm btn-danger" style="border-radius: 2rem;" href="/deleteservice/{{ service.id }}/"> <strong>Delete Service</strong> </a>
+                        </div>
+                      {% elif user.is_staff %}
+                        <div class="text-center mt-2">
+                          <a class="btn btn-sm btn-danger" style="border-radius: 2rem;" href="/deleteservice/{{ service.id }}/"> <strong>Delete Service</strong> </a>
+                        </div>
+                      {% elif user.is_active %}
+                      {% else %}
+                      {% endif %}
+
                     </div>
-
-                    <h3><a href="course-details.html">Kiswahili Learning Courses</a></h3>
-                    <p>
-                      Enroll for the Kiswahili Learning Course where you will learn how to fluently speak the language.<br>
-                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                    </p>
                   </div>
-                </div>
-              </div> <!-- End Course Item-->
+                </div> <!-- End Course Item-->
 
-              <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                <div class="course-item">
-                  <img src="{% static 'assets/img/course-2.jpg' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                    
-                    </div>
-
-                    <h3><a href="course-details.html">Kiswahili Translation Services</a></h3>
-                    <p>
-                      Enroll for the Kiswahili Translation Course where you will be trained to become an excellent translator from Kiswahili to any of the international languages.<br>
-                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                    </p>
-                  </div>
-                </div>
-              </div> <!-- End Course Item-->
-
-              <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                <div class="course-item">
-                  <img src="{% static 'assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                    </div>
-                    <h3><a href="#">Kiswahili Interpretation Services</a></h3>
-                    <p>
-                      Enroll for this course where you will become a detailed and proffesional kiswahili content creator.<br>
-                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                    </p>
-                  </div>
-                </div>
-              </div> <!-- End Course Item-->
-
-              <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                <div class="course-item">
-                  <img src="{% static 'assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                    </div>
-                    <h3><a href="#">Kiswahili Content Creation Services</a></h3>
-                    <p>
-                      Enroll for this course where you will become a detailed and proffesional kiswahili content creator.<br>
-                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                    </p>
-                  </div>
-                </div>
-              </div> <!-- End Course Item-->
+              {% endfor %}
 
             </div>
 
             {% if user.is_superuser %}
-              <div class="text-center" style="margin-top: 10px;">
-                <button class="btn btn-primary">Add New Service</button>
-              </div>
+            <div class="text-center" style="margin-top: 10px;">
+              <button class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddNewServiceModal"> <strong>Add New Service</strong> </button>
+            </div>
             {% elif user.is_staff %}
-              <div class="text-center" style="margin-top: 10px;">
-                <button class="btn btn-primary">Add New Service</button>
-              </div>
+            <div class="text-center" style="margin-top: 10px; border-radius: 2rem;">
+              <button class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddNewServiceModal"> <strong>Add New Service</strong> </button>
+            </div>
             {% elif user.is_active %}
             {% else %}
             {% endif %}
@@ -115,11 +86,44 @@
           </div>
         </section><!-- End Courses Section -->
 
+
+
       </main><!-- End #main -->
 
     {% include 'includes/footer.html' %}
 
   </div>
+
+  <!--================Model Area =================-->
+  <div class="modal fade" id="AddNewServiceModal" tabindex="-1" role="dialog" aria-labelledby="AddNewServiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="entry-form">
+            <form action="/addnewservice/" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <h2><strong>Add New Service Form</strong></h2>
+
+                <input type="file" class="form-control text-center" style="height: auto;" name="simage" id="simage" placeholder="Service " required="">
+
+                <input type="text" class="form-control text-center" name="stitle" id="stitle" placeholder="Service Title" required="">
+
+                <textarea class="form-control text-center" style="height: auto;" name="sdescription" id="sdescription" rows="5" placeholder="Service Description" required=""></textarea>
+
+                <button class="submit-btn form-control text-center" id="form-submit"> <strong>Submit</strong> </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================Modal Area =================-->
 
 </body>
 
