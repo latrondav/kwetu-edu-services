@@ -7,7 +7,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='Profile Images', null=True, blank=True, default='profile.jpg')
     bio = models.TextField(null=True, blank=True)
     contact = models.CharField(max_length=255, null=True, blank=True)
-    position = models.CharField(max_length=255, null=True, blank=True)
+    position = models.CharField(max_length=255, null=True, blank=True, default='Normal Member')
     twitter = models.CharField(max_length=255, null=True, blank=True)
     facebook = models.CharField(max_length=255, null=True, blank=True)
     instagram = models.CharField(max_length=255, null=True, blank=True)

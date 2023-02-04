@@ -195,7 +195,10 @@ def delete_service(request, serviceid):
         return redirect('/services/')
 
 def team(request):
-    return render(request, 'team.html')
+    context = {
+        'TeamMates' : Profile.objects.filter(position="Team Member"),
+    }
+    return render(request, 'team.html', context)
 
 def upcoming_events(request):
     return render(request, 'events.html')
@@ -207,13 +210,22 @@ def recorded_events(request):
     return render(request, 'recorded_events.html')
 
 def members(request):
-    kwetu_members = User.objects.all()
-
     context={
-        'kwetu_members': kwetu_members
+        'Members': User.objects.all()
     }
-    
     return render(request, 'members.html', context)
+
+def update_member(request):
+    if request.method == 'POST':
+        member_id = request.POST['member_id']
+        position = request.POST['position']
+
+        Profile.objects.filter(user=member_id).update(position=position)
+        messages.success(request, "Member Postion Updated Successfully")
+        return redirect('/members/')
+    else:
+        messages.error(request, "Failed To Update Member Postion, Please Contact Tech Team And Try Again Later.")
+        return redirect('/members/')
 
 def contact(request):
     if request.method == 'POST':

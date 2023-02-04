@@ -35,6 +35,7 @@
             <div class="row">
               <div class="row table-responsive">
                 <table class="table">
+
                   <thead>
                     <tr class="text-center">
                       <th>#</th>
@@ -45,19 +46,39 @@
                       <th>ACTION</th>
                     </tr>
                   </thead>
+                  
                   <tbody>
-                    <form action="/viewmember/" method="POST">
-                      <tr class="h6 text-center">
-                        <input hidden readonly class="text-center" name="member_id" id="member_id"style="border-radius: 1rem;" value="">
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>Johndoe@kwetueduservices.com</td>
-                        <td>+256 784 123456</td>
-                        <td>ACTIVE</td>
-                        <td><button type="submit" class="btn btn-buy" style="border-radius: 5rem;">SAVE</button></td>
-                      </tr>
-                    </form>
+                    {% for member in Members %}
+                      <form action="/updatemember/" method="POST">
+                        {% csrf_token %}
+                          <tr class="h6 text-center">
+                            <td>
+                              1
+                              <input hidden readonly class="text-center" name="member_id" id="member_id"style="border-radius: 1rem;" value="{{ member.id }}">
+                            </td>
+                            <td>{{ member.first_name }} {{ member.last_name }}</td>
+                            <td>{{ member.email }}</td>
+                            <td>{{ member.profile.contact }}</td>
+                            <td>
+                              <center>
+                                <select class="form-select text-center" name="position" id="position" style="border-radius: 2rem; width: fit-content; border: white;">
+                                  <option value="{{ member.profile.position }}">{{ member.profile.position }}</option>
+                                  <option value="Normal Member">Normal Member</option>
+                                  <option value="Student Member">Student Member</option>
+                                  <option value="Team Member">Team Member</option>
+                                </select>
+                              </center>
+                            </td>
+                            <td>
+                              <center>
+                                <button type="submit" class="btn btn-buy" style="border-radius: 5rem;"> <strong>SAVE</strong> </button>
+                              </center>
+                            </td>
+                          </tr>
+                      </form>
+                    {% endfor %}
                   </tbody>
+
                 </table>
               </div>
             </div>
