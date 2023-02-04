@@ -8,7 +8,6 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_str
 from kwetuproject import settings
 from .token_1 import generate_token
-#from . forms import *
 from . models import *
 from django.core.mail import EmailMessage, send_mail
 
