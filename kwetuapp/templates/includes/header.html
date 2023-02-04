@@ -31,7 +31,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.first_name }}</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/admin">Admin</a>
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#UpdateProfileModal">Profile</a>
                             <a class="dropdown-item" href="/members">Members</a>
                             <a class="dropdown-item" href="/signout">LogOut</a>
                         </div>
@@ -42,6 +42,78 @@
         </div>
     </header>
     <!-- End Header -->
+
+    <!--================Model Area =================-->
+<div class="modal fade" id="UpdateProfileModal" tabindex="-1" role="dialog" aria-labelledby="UpdateProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="container bg-light" style="border-radius: 2rem;">
+                <form action="/updateprofile/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="row text-center">
+                            <h3>Your Profile</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <center>
+                                    <img src="{{ user.profile.image.url }}" style="height: 250px; width: 250px; border-radius: 10rem;" alt="profile picture">
+                                </center>
+                                <div class="text-center mt-2 mb-2">
+                                    <label class="form-label" for="image">Current: {{ user.profile.image }}</label>
+                                    <input class="form-control" style="border-radius: 2rem;" type="file" name="image" id="image">
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="row">
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="firstname" id="firstname"  placeholder="Surname" value="{{ user.first_name }}" required="">
+                                    </div>
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="lastname" id="lastname" placeholder="Given Name" value="{{ user.last_name }}" required="">
+                                    </div>
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="email" class="form-control text-center" style="border-radius: 2rem;" name="email" id="email"  placeholder="Email" value="{{ user.email }}" required="">
+                                    </div>
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="contact" id="contact" placeholder="Contact" value="{{ user.profile.contact }}" required>
+                                    </div>
+                                    <div class="col-lg-12 mt-2">
+                                        <textarea class="form-control text-center" style="border-radius: 2rem;" name="bio" id="bio" rows="5" placeholder="Your Bio" required>{{ user.profile.bio }}"</textarea>
+                                    </div>
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="twitter" id="twitter" placeholder="Twitter Handle URL" value="{{ user.profile.twitter }}">
+                                    </div>
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="facebook" id="facebook" placeholder="Facebook Handle URL" value="{{ user.profile.facebook }}">
+                                    </div>
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="instagram" id="instagram" placeholder="Instagram Handle URL" value="{{ user.profile.instagram }}">
+                                    </div>
+                                    <div class="col-lg-6 mt-2">
+                                        <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="linkedin" id="linkedin" placeholder="Linkedin Handle URL" value="{{ user.profile.linkedin }}">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <center>
+                                <button type="submit" class="btn btn-info text-center mb-2" style="border-radius: 2rem; width: fit-content;"> <strong>Update Profile</strong> </button>
+                            </center>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!--================Modal Area =================-->
 
 {% elif user.is_staff %}
 
@@ -149,4 +221,47 @@
     <!-- End Header -->
 
 {% endif %}
+
+<!--================Model Area =================-->
+<div class="modal fade" id="UpdateProfileModal" tabindex="-1" role="dialog" aria-labelledby="UpdateProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <form action="/updateprofile/" method="POST" enctype="multipart/form-data">
+                    <div class="row text-center">
+                        <h3>Your Profile</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <img src="{{ user.profile.image }}" alt="">
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="row">
+                                <div class="col-lg-6">firstname</div>
+                                <div class="col-lg-6">lastname</div>
+                                <div class="col-lg-6">email</div>
+                                <div class="col-lg-6">contact</div>
+                                <div class="col-lg-12">bio</div>
+                                <div class="col-lg-6">twitter</div>
+                                <div class="col-lg-6">facebook</div>
+                                <div class="col-lg-6">instgram</div>
+                                <div class="col-lg-6">linkedin</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">update profile button</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!--================Modal Area =================-->
 
