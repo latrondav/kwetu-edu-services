@@ -8,7 +8,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_str
 from kwetuproject import settings
 from .token_1 import generate_token
-from . forms import *
+#from . forms import *
 from . models import *
 from django.core.mail import EmailMessage, send_mail
 
@@ -102,74 +102,76 @@ def profile(request):
     }
     return render(request, 'profilemodal.html', 'includes/header.html', context)
 
-def updateprofile(request):
-    if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
-            return redirect('/')
-        else:
-            messages.error(request, "Sorry, your account update failed. Please try again later.")
-    else:
-        user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'home.html')
-
 # def updateprofile(request):
 #     if request.method == 'POST':
 #         user_form = UserUpdateForm(request.POST, instance=request.user)
 #         profile_form = ProfileForm(request.POST, instance=request.user.profile)
 #         if user_form.is_valid() and profile_form.is_valid():
-#             email_changed = False
-#             if user_form.cleaned_data.get('email') != request.user.email:
-#                 email_changed = True
-
-#                 user_form.save()
-#                 profile_form.save()
-
-#                 if email_changed:
-#                     # Deactivate user account
-#                     request.user.is_active = False
-#                     request.user.save()
-#                     # Log out user
-#                     logout(request)
-#                     # Send reactivation email
-#                     current_site = get_current_site(request)
-#                     email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
-#                     message = render_to_string('email_confirmation.html', {
-#                         'name': request.user.first_name,
-#                         'domain': current_site.domain,
-#                         'uid': urlsafe_base64_encode(force_bytes(request.user.pk)),
-#                         'token': generate_token.make_token(request.user)
-#                     })
-#                     email = EmailMessage(
-#                         email_subject,
-#                         message,
-#                         settings.EMAIL_HOST_USER,
-#                         [request.user.email],
-#                     )
-#                     email.fail_silently = True
-#                     email.send()
-
-#                     # Deactivate user account
-#                     request.user.is_active = False
-#                     request.user.save()
-#                     # Log out user
-#                     logout(request)
-
-#                 messages.success(request, "Your email has been updated. Please check your email to reactivate your account.")
-#             else:
-#                 messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
+#             user_form.save()
+#             profile_form.save()
+#             messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
 #             return redirect('/')
 #         else:
 #             messages.error(request, "Sorry, your account update failed. Please try again later.")
 #     else:
 #         user_form = UserUpdateForm(instance=request.user)
 #         profile_form = ProfileForm(instance=request.user.profile)
-#     return render(request, 'update_user.html')
+#     return render(request, 'home.html')
+
+def update_profile(request):
+    if request.method == 'POST':
+        user = User.objects.get(id=request.user.id)
+        profile = Profile.objects.get(user=user)
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        new_email = request.POST.get('email')
+        profile.contact = request.POST.get('contact')
+        profile.bio = request.POST.get('bio')
+        profile.twitter = request.POST.get('twitter')
+        profile.facebook = request.POST.get('facebook')
+        profile.instagram = request.POST.get('instagram')
+        profile.linkedin = request.POST.get('linkedin')
+
+        image = request.FILES.get('image')
+        if image:
+            profile.image = image
+
+        if user.email != new_email:
+            user.email = new_email
+            user.username = new_email
+            user.is_active = False
+            user.save()
+            profile.save()
+
+            # send email to the new email address for reactivation
+            current_site = get_current_site(request)
+            email_subject = "KWETU REACTIVATION EMAIL"
+            message = render_to_string('email_reactivation.html', {
+                'name': user.first_name,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': generate_token.make_token(user)
+            })
+            email = EmailMessage(
+                email_subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [user.email],
+            )
+            email.fail_silently = True
+            email.send()
+
+            logout(request)
+            messages.success(request, 'Your Profile And New Email Address Have Been Updated Hence Deactivating Your Account Until New Email Is Confirmed. Please Check Your New Email To Reactivate Your Account.')
+            return redirect('/')
+        else:
+            user.save()
+            profile.save()
+            messages.success(request, 'Your profile has been successfully updated!')
+            return redirect('/')
+    else:
+        messages.error(request, "Sorry, your account profile update failed. Please Contact Admin And try again later.")
+        return render(request, 'home.html')
 
 def signout(request):
     logout(request)
@@ -187,9 +189,25 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         messages.success(request, "Kwetu Account Has Been Successfully Activated, Please Proceed To Login, Thank You.")
-        return render(request, 'home.html')
+        return redirect('/')
     else:
         messages.info(request, "Kwetu Account Activation Failed, Please Contact Tech Team And Try Again.")
+        return redirect('/')
+    
+def reactivate(request, uidb64, token):
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and generate_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.success(request, "Kwetu Account Has Been Successfully Re-Activated, Please Proceed To Login, Thank You.")
+        return redirect('/')
+    else:
+        messages.info(request, "Kwetu Account Re-Activation Failed, Please Contact Tech Team And Try Again.")
         return redirect('/')
 
 def about(request):

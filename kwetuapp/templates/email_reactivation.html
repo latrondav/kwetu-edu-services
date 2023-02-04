@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+Dear {{ name }},
+
+You account was deactivated because you changed your email,so to reactivate your account on KWETU, complete the process below,
+
+Reactivation Link: http://{{ domain }}{% url 'reactivate' uidb64=uid token=token %}
+
+Yours Sincerely,
+KWETU ADMIN
+
+{% endautoescape %}
