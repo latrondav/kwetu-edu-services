@@ -9,125 +9,134 @@
 
 <body>
 
-  {% include 'includes/header.html' %}
+  <div class="container">
 
-  {% if user.is_superuser %}
+    {% include 'includes/header.html' %}
 
-    <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>Members</h2>
-          <p>Below is an orgnised list of Kwetu Members.</p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= Members Section ======= -->
-      <section id="members" class="members">
-        <div class="container" data-aos="fade-up">
-          <div class="row">
-            <div class="row table-responsive">
-              <table class="table">
-                <thead>
-                  <tr class="text-center">
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>CONTACT</th>
-                    <th>DATE JOINED</th>
-                    <th>STATUS</th>
-                    <th>ACTION</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <form action="/viewmember/" method="POST">
-                    <tr class="h6 text-center">
-                      <td><input hidden readonly class="text-center" name="member_id" id="member_id"
-                          style="border-radius: 1rem;" value=""></td>
-                      <td>John Doe</td>
-                      <td>Johndoe@kwetueduservices.com</td>
-                      <td>+256 784 123456</td>
-                      <td>01/01/2022</td>
-                      <td>ACTIVE</td>
-                      <td><button type="submit" class="btn btn-buy" style="border-radius: 5rem;">SAVE</button></td>
+    {% if user.is_superuser %}
+
+      <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs" data-aos="fade-in">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>Members</h2>
+            <p>
+              <strong>
+                Below is an orgnised list of Kwetu Members.
+              </strong>
+            </p>
+          </div>
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= Members Section ======= -->
+        <section id="members" class="members">
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="row table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr class="text-center">
+                      <th>#</th>
+                      <th>NAME</th>
+                      <th>EMAIL</th>
+                      <th>CONTACT</th>
+                      <th>STATUS/POSTION</th>
+                      <th>ACTION</th>
                     </tr>
-                  </form>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    <form action="/viewmember/" method="POST">
+                      <tr class="h6 text-center">
+                        <input hidden readonly class="text-center" name="member_id" id="member_id"style="border-radius: 1rem;" value="">
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>Johndoe@kwetueduservices.com</td>
+                        <td>+256 784 123456</td>
+                        <td>ACTIVE</td>
+                        <td><button type="submit" class="btn btn-buy" style="border-radius: 5rem;">SAVE</button></td>
+                      </tr>
+                    </form>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-      </section><!-- End Members Section -->
+        </section><!-- End Members Section -->
+      
+      </main><!-- End #main -->
     
-    </main><!-- End #main -->
-  
-  {% elif user.is_staff %}
+    {% elif user.is_staff %}
 
-    <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>Members</h2>
-          <p>Below is an orgnised list of Kwetu Members.</p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= Members Section ======= -->
-      <section id="members" class="members">
-        <div class="container" data-aos="fade-up">
-          <div class="row">
-            <div class="row table-responsive">
-              <table class="table">
-                <thead>
-                  <tr class="text-center">
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>CONTACT</th>
-                    <th>DATE JOINED</th>
-                    <th>STATUS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <form action="/viewmember/" method="POST">
-                    <tr class="h6 text-center">
-                      <td><input hidden readonly class="text-center" name="member_id" id="member_id"
-                          style="border-radius: 1rem;" value=""></td>
-                      <td>John Doe</td>
-                      <td>Johndoe@kwetueduservices.com</td>
-                      <td>+256 784 123456</td>
-                      <td>01/01/2022</td>
-                      <td>ACTIVE</td>
+      <main id="main">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs" data-aos="fade-in">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>Members</h2>
+            <p>
+              <strong>
+                Below is an orgnised list of Kwetu Members.
+              </strong>
+            </p>
+          </div>
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= Members Section ======= -->
+        <section id="members" class="members">
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="row table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr class="text-center">
+                      <th>ID</th>
+                      <th>NAME</th>
+                      <th>EMAIL</th>
+                      <th>CONTACT</th>
+                      <th>STATUS/POSTION</th>
+                      <th>ACTION</th>
                     </tr>
-                  </form>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    <form action="/viewmember/" method="POST">
+                      <tr class="h6 text-center">
+                        <td><input hidden readonly class="text-center" name="member_id" id="member_id"style="border-radius: 1rem;" value=""></td>
+                        <td>John Doe</td>
+                        <td>Johndoe@kwetueduservices.com</td>
+                        <td>+256 784 123456</td>
+                        <td>ACTIVE</td>
+                        <td><button type="submit" class="btn btn-buy" style="border-radius: 5rem;">SAVE</button></td>
+                      </tr>
+                    </form>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-      </section><!-- End Members Section -->
+        </section><!-- End Members Section -->
+      
+      </main><!-- End #main -->
     
-    </main><!-- End #main -->
-  
-  {% else %}
+    {% else %}
 
-    <main id="main">
-      <!-- ======= Members Section ======= -->
-      <section id="members" class="members">
-        <div class="container" style="margin-top: 50px;" data-aos="fade-up">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <center>
-            <h2>YOU ARE NOT AUTHORISED TO VIEW THIS PAGE</h2>
-          </center>
-        </div>
-      </section>
-    </main><!-- End #main -->
-  
-  {% endif %}
+      <main id="main">
+        <!-- ======= Members Section ======= -->
+        <section id="members" class="members">
+          <div class="container" style="margin-top: 50px;" data-aos="fade-up">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <center>
+              <h2>YOU ARE NOT AUTHORISED TO VIEW THIS PAGE</h2>
+            </center>
+          </div>
+        </section>
+      </main><!-- End #main -->
+    
+    {% endif %}
 
-  {% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
+
+  </div>
 
 </body>
 

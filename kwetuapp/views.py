@@ -153,7 +153,7 @@ def add_new_testimonial(request):
         return redirect('/about/')
     else:
         messages.error(request, "Failure To Add New Testimonial, Please Contact Tech Team And Try Again Later.")
-        return render(request, 'about.html')
+        return redirect('/about/')
     
 def delete_testimonial(request, testimonialid):
     if testimonialid:
@@ -163,7 +163,7 @@ def delete_testimonial(request, testimonialid):
         return redirect('/about/')
     else:
         messages.error(request, "Failed To Delete Testimonial, Please Contact Tech Team And Try Again")
-        return render(request, 'about.html')
+        return redirect('/about/')
     
 def services(request):
     context = {
@@ -183,7 +183,7 @@ def add_new_service(request):
         return redirect('/services/')
     else:
         messages.error(request, "Failure To Add New Service, Please Contact Tech Team And Try Again Later.")
-        return render(request, 'services.html')
+        return redirect('/services/')
     
 def delete_service(request, serviceid):
     if serviceid:
@@ -193,7 +193,7 @@ def delete_service(request, serviceid):
         return redirect('/services/')
     else:
         messages.error(request, "Failed To Delete Service, Please Contact Tech Team And Try Again")
-        return render(request, 'services.html')
+        return redirect('/services/')
 
 def team(request):
     return render(request, 'team.html')
@@ -233,9 +233,12 @@ def contact(request):
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
 
         new_message = Contact(contact_name = contact_name, contact_email = contact_email, contact_subject = contact_subject, contact_message = contact_message)
-        new_message.save()
-        messages.success(request, "Message Sent, Thank You For Contacting Kwetu.")
-        return redirect('contact')
+        if new_message:
+            new_message.save()
+            messages.success(request, "Message Sent, Thank You For Contacting Kwetu.")
+            return redirect('contact')
+        else:
+            messages.error(request, "Message Failed To Send, Try Again Later")
+            return redirect('contact')
     else:
-        messages.error(request, "Message Failed To Send, Try Again Later")
         return render(request, 'contact.html')
