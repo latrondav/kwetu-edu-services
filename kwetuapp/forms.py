@@ -5,4 +5,12 @@ from django import forms
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('contact', 'status',)
+        fields = ('image',
+                  'bio',
+                  'contact',
+                  'position',
+                  'twitter',
+                  'facebook',
+                  'instagram',
+                  'linkedin',
+                  )

@@ -97,7 +97,6 @@ def homesignup(request):
 def profile(request):
     context = {
         'user' : request.user,
-        'Profile' : request.Profile
     }
     return render(request, 'profilemodal.html', 'includes/header.html', context)
 
@@ -106,10 +105,10 @@ def updateprofile(request):
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
         if profile_form.is_valid():
             profile_form.save()
-            messages.success(request, "YOUR KWETU ACCOUNT PROFILE HAS BEEN UPDATED SUCCESSFULLY")
+            messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
             return redirect('/')
         else:
-            messages.error(request, "SORRY, KWETU ACCOUNT UPDATE FAILED, TRY AGAIN LATERf")
+            messages.error(request, "Sorry, Kwetu Account Profile Update Failed, Try Again Later.")
     else:
         profile_form = ProfileForm(instance=request.user.profile)
     return render(request, "home.html")

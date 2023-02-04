@@ -4,8 +4,14 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Profile(models.Model):
     user =  models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    contact = models.CharField(max_length=255, null=False, blank=False)
-    status = models.CharField(max_length=255, null=False, blank=False, default="NORMAL MEMBER")
+    image = models.ImageField(upload_to='Profile Images', null=True, blank=True, default='profile.jpg')
+    bio = models.TextField(null=True, blank=True)
+    contact = models.CharField(max_length=255, null=True, blank=True)
+    position = models.CharField(max_length=255, null=True, blank=True)
+    twitter = models.CharField(max_length=255, null=True, blank=True)
+    facebook = models.CharField(max_length=255, null=True, blank=True)
+    instagram = models.CharField(max_length=255, null=True, blank=True)
+    linkedin = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return str(self.user)
