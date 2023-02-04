@@ -9,109 +9,117 @@
 
 <body>
 
-  {% include 'includes/header.html' %}
+  <div class="container">
 
-    <main id="main" data-aos="fade-in">
+    {% include 'includes/header.html' %}
 
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>Services</h2>
-          <p> Check out our available services and order for one that suits your preference. </p>
-        </div>
-      </div><!-- End Breadcrumbs -->
+      <main id="main" data-aos="fade-in">
 
-      <!-- ======= Courses Section ======= -->
-      <section id="courses" class="courses">
-        <div class="container" data-aos="fade-up">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>Services</h2>
+            <p> 
+              <strong>
+                Check Out Our Available Services And Order For One That Suits Your Preference. 
+              </strong>
+            </p>
+          </div>
+        </div><!-- End Breadcrumbs -->
 
-          <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        <!-- ======= Courses Section ======= -->
+        <section id="courses" class="courses">
+          <div class="container" data-aos="fade-up">
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-              <div class="course-item">
-                <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="...">
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="course-item">
+                  <img src="{% static 'assets/img/course-1.jpg' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      
+                    </div>
+
+                    <h3><a href="course-details.html">Kiswahili Learning Courses</a></h3>
+                    <p>
+                      Enroll for the Kiswahili Learning Course where you will learn how to fluently speak the language.<br>
+                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
+                    </p>
+                  </div>
+                </div>
+              </div> <!-- End Course Item-->
+
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                <div class="course-item">
+                  <img src="{% static 'assets/img/course-2.jpg' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
                     
+                    </div>
+
+                    <h3><a href="course-details.html">Kiswahili Translation Services</a></h3>
+                    <p>
+                      Enroll for the Kiswahili Translation Course where you will be trained to become an excellent translator from Kiswahili to any of the international languages.<br>
+                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
+                    </p>
                   </div>
-
-                  <h3><a href="course-details.html">Kiswahili Learning Courses</a></h3>
-                  <p>
-                    Enroll for the Kiswahili Learning Course where you will learn how to fluently speak the language.<br>
-                    <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                  </p>
                 </div>
-              </div>
-            </div> <!-- End Course Item-->
+              </div> <!-- End Course Item-->
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-              <div class="course-item">
-                <img src="{% static 'assets/img/course-2.jpg' %}" class="img-fluid" alt="...">
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                  
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                <div class="course-item">
+                  <img src="{% static 'assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    </div>
+                    <h3><a href="#">Kiswahili Interpretation Services</a></h3>
+                    <p>
+                      Enroll for this course where you will become a detailed and proffesional kiswahili content creator.<br>
+                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
+                    </p>
                   </div>
-
-                  <h3><a href="course-details.html">Kiswahili Translation Services</a></h3>
-                  <p>
-                    Enroll for the Kiswahili Translation Course where you will be trained to become an excellent translator from Kiswahili to any of the international languages.<br>
-                    <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                  </p>
                 </div>
-              </div>
-            </div> <!-- End Course Item-->
+              </div> <!-- End Course Item-->
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-              <div class="course-item">
-                <img src="{% static 'assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                <div class="course-item">
+                  <img src="{% static 'assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                    </div>
+                    <h3><a href="#">Kiswahili Content Creation Services</a></h3>
+                    <p>
+                      Enroll for this course where you will become a detailed and proffesional kiswahili content creator.<br>
+                      <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
+                    </p>
                   </div>
-                  <h3><a href="#">Kiswahili Interpretation Services</a></h3>
-                  <p>
-                    Enroll for this course where you will become a detailed and proffesional kiswahili content creator.<br>
-                    <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                  </p>
                 </div>
-              </div>
-            </div> <!-- End Course Item-->
+              </div> <!-- End Course Item-->
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-              <div class="course-item">
-                <img src="{% static 'assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                  </div>
-                  <h3><a href="#">Kiswahili Content Creation Services</a></h3>
-                  <p>
-                    Enroll for this course where you will become a detailed and proffesional kiswahili content creator.<br>
-                    <a href="/contact/" class="btn btn-success" style="margin-top: 10px;">Contact Us To Get Service</a>
-                  </p>
-                </div>
+            </div>
+
+            {% if user.is_superuser %}
+              <div class="text-center" style="margin-top: 10px;">
+                <button class="btn btn-primary">Add New Service</button>
               </div>
-            </div> <!-- End Course Item-->
+            {% elif user.is_staff %}
+              <div class="text-center" style="margin-top: 10px;">
+                <button class="btn btn-primary">Add New Service</button>
+              </div>
+            {% elif user.is_active %}
+            {% else %}
+            {% endif %}
 
           </div>
+        </section><!-- End Courses Section -->
 
-          {% if user.is_superuser %}
-            <div class="text-center" style="margin-top: 10px;">
-              <button class="btn btn-primary">Add New Service</button>
-            </div>
-          {% elif user.is_staff %}
-            <div class="text-center" style="margin-top: 10px;">
-              <button class="btn btn-primary">Add New Service</button>
-            </div>
-          {% elif user.is_active %}
-          {% else %}
-          {% endif %}
+      </main><!-- End #main -->
 
-        </div>
-      </section><!-- End Courses Section -->
+    {% include 'includes/footer.html' %}
 
-    </main><!-- End #main -->
-
-  {% include 'includes/footer.html' %}
+  </div>
 
 </body>
 

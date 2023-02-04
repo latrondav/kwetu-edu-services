@@ -9,348 +9,369 @@
 
 <body>
 
-  {% include 'includes/header.html' %}
+  <div class="container">
 
-  {% if user.is_superuser %}
+    {% include 'includes/header.html' %}
 
-    <main id="main" data-aos="fade-in">
+    {% if user.is_superuser %}
 
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>Team</h2>
-          <p>Below is our dedicated and committed team to provide you wit best of our services </p>
-        </div>
-      </div><!-- End Breadcrumbs -->
+      <main id="main" data-aos="fade-in">
 
-      <!-- ======= Trainers Section ======= -->
-      <section id="trainers" class="trainers">
-        <div class="container" data-aos="fade-up">
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>Team</h2>
+            <p>
+              <strong>
+                Below Is Our Dedicated And Committed Team To Provide You With Best Of Our Services.
+              </strong>
+            </p>
+          </div>
+        </div><!-- End Breadcrumbs -->
 
-          <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Walter White</h4>
-                  <span>Web Development</span>
-                  <p>
-                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+        <!-- ======= Trainers Section ======= -->
+        <section id="trainers" class="trainers">
+          <div class="container" data-aos="fade-up">
+
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Walter White</h4>
+                    <span>Web Development</span>
+                    <p>
+                      Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Sarah Jhinson</h4>
+                    <span>Marketing</span>
+                    <p>
+                      Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>William Anderson</h4>
+                    <span>Content</span>
+                    <p>
+                      Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Sarah Jhinson</h4>
-                  <span>Marketing</span>
-                  <p>
-                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>William Anderson</h4>
-                  <span>Content</span>
-                  <p>
-                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
+            <div class="text-center">
+              <button class="btn btn-primary">Add Teamate</button>
             </div>
 
           </div>
+        </section><!-- End Trainers Section -->
 
-          <div class="text-center">
-            <button class="btn btn-primary">Add Teamate</button>
+      </main><!-- End #main -->
+
+    {% elif user.is_staff %}
+
+      <main id="main" data-aos="fade-in">
+      
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid"style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>Team</h2>
+            <p>
+              <strong>
+                Below Is Our Dedicated And Committed Team To Provide You With Best Of Our Services.
+              </strong>
+            </p>
           </div>
-
-        </div>
-      </section><!-- End Trainers Section -->
-
-    </main><!-- End #main -->
-
-  {% elif user.is_staff %}
-
-    <main id="main" data-aos="fade-in">
-    
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid"style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>Team</h2>
-          <p>Below is our dedicated and committed team to provide you wit best of our services </p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= Trainers Section ======= -->
-      <section id="trainers" class="trainers">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Walter White</h4>
-                  <span>Web Development</span>
-                  <p>
-                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut
-                    aut
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= Trainers Section ======= -->
+        <section id="trainers" class="trainers">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Walter White</h4>
+                    <span>Web Development</span>
+                    <p>
+                      Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut
+                      aut
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Sarah Jhinson</h4>
-                  <span>Marketing</span>
-                  <p>
-                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+      
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Sarah Jhinson</h4>
+                    <span>Marketing</span>
+                    <p>
+                      Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>William Anderson</h4>
-                  <span>Content</span>
-                  <p>
-                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+      
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>William Anderson</h4>
+                    <span>Content</span>
+                    <p>
+                      Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
+      
             </div>
-    
+      
+            <div class="text-center">
+              <button class="btn btn-primary">Add Teamate</button>
+            </div>
+      
           </div>
-    
-          <div class="text-center">
-            <button class="btn btn-primary">Add Teamate</button>
+        </section><!-- End Trainers Section -->
+      
+      </main><!-- End #main -->
+
+    {% elif user.is_active %}
+
+      <main id="main" data-aos="fade-in">
+      
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>Team</h2>
+            <p>
+              <strong>
+                Below Is Our Dedicated And Committed Team To Provide You With Best Of Our Services.
+              </strong>
+            </p>
           </div>
-    
-        </div>
-      </section><!-- End Trainers Section -->
-    
-    </main><!-- End #main -->
-
-  {% elif user.is_active %}
-
-    <main id="main" data-aos="fade-in">
-    
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>Team</h2>
-          <p>Below is our dedicated and committed team to provide you wit best of our services </p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= Trainers Section ======= -->
-      <section id="trainers" class="trainers">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Walter White</h4>
-                  <span>Web Development</span>
-                  <p>
-                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut
-                    aut
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= Trainers Section ======= -->
+        <section id="trainers" class="trainers">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Walter White</h4>
+                    <span>Web Development</span>
+                    <p>
+                      Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut
+                      aut
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Sarah Jhinson</h4>
-                  <span>Marketing</span>
-                  <p>
-                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+      
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Sarah Jhinson</h4>
+                    <span>Marketing</span>
+                    <p>
+                      Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>William Anderson</h4>
-                  <span>Content</span>
-                  <p>
-                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+      
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>William Anderson</h4>
+                    <span>Content</span>
+                    <p>
+                      Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
+      
             </div>
-    
           </div>
-        </div>
-      </section><!-- End Trainers Section -->
-    
-    </main><!-- End #main -->
+        </section><!-- End Trainers Section -->
+      
+      </main><!-- End #main -->
 
-  {% else %}
+    {% else %}
 
-    <main id="main" data-aos="fade-in">
-    
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs">
-        <div class="container">
-          <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
-          <h2>Team</h2>
-          <p>Below is our dedicated and committed team to provide you wit best of our services </p>
-        </div>
-      </div><!-- End Breadcrumbs -->
-    
-      <!-- ======= Trainers Section ======= -->
-      <section id="trainers" class="trainers">
-        <div class="container" data-aos="fade-up">
-    
-          <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Walter White</h4>
-                  <span>Web Development</span>
-                  <p>
-                    Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut
-                    aut
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>Sarah Jhinson</h4>
-                  <span>Marketing</span>
-                  <p>
-                    Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="">
-                <div class="member-content">
-                  <h4>William Anderson</h4>
-                  <span>Content</span>
-                  <p>
-                    Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                  </p>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
+      <main id="main" data-aos="fade-in">
+      
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+          <div class="container">
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="" class="img-fluid" style="height: 100px; width: 100px; border-radius: 15px;">
+            <h2>Team</h2>
+            <p>
+              <strong>
+                Below Is Our Dedicated And Committed Team To Provide You With Best Of Our Services.
+              </strong>
+            </p>
           </div>
-        </div>
-      </section><!-- End Trainers Section -->
-    
-    </main><!-- End #main -->
+        </div><!-- End Breadcrumbs -->
+      
+        <!-- ======= Trainers Section ======= -->
+        <section id="trainers" class="trainers">
+          <div class="container" data-aos="fade-up">
+      
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" >
+                <div class="member" style="border-radius: 2rem;">
+                  <img src="{% static 'assets/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="" style="border-radius: 2rem;">
+                  <div class="member-content">
+                    <h4>Walter White</h4>
+                    <span>Web Development</span>
+                    <p>
+                      Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut
+                      aut
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member" style="border-radius: 2rem;">
+                  <img src="{% static 'assets/img/trainers/trainer-2.jpg' %}" class="img-fluid" alt="" style="border-radius: 2rem;">
+                  <div class="member-content">
+                    <h4>Sarah Jhinson</h4>
+                    <span>Marketing</span>
+                    <p>
+                      Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member" style="border-radius: 2rem;">
+                  <img src="{% static 'assets/img/trainers/trainer-3.jpg' %}" class="img-fluid" alt="" style="border-radius: 2rem;">
+                  <div class="member-content">
+                    <h4>William Anderson</h4>
+                    <span>Content</span>
+                    <p>
+                      Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </section><!-- End Trainers Section -->
+      
+      </main><!-- End #main -->
 
-  {% endif %}
+    {% endif %}
 
-  {% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
+
+  </div>
 
 </body>
 
