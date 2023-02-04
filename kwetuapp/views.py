@@ -102,22 +102,6 @@ def profile(request):
     }
     return render(request, 'profilemodal.html', 'includes/header.html', context)
 
-# def updateprofile(request):
-#     if request.method == 'POST':
-#         user_form = UserUpdateForm(request.POST, instance=request.user)
-#         profile_form = ProfileForm(request.POST, instance=request.user.profile)
-#         if user_form.is_valid() and profile_form.is_valid():
-#             user_form.save()
-#             profile_form.save()
-#             messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
-#             return redirect('/')
-#         else:
-#             messages.error(request, "Sorry, your account update failed. Please try again later.")
-#     else:
-#         user_form = UserUpdateForm(instance=request.user)
-#         profile_form = ProfileForm(instance=request.user.profile)
-#     return render(request, 'home.html')
-
 def update_profile(request):
     if request.method == 'POST':
         user = User.objects.get(id=request.user.id)
@@ -281,9 +265,6 @@ def upcoming_events(request):
 
 def past_events(request):
     return render(request, 'past_events.html')
-
-def recorded_events(request):
-    return render(request, 'recorded_events.html')
 
 def members(request):
     context={
