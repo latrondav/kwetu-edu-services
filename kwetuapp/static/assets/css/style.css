@@ -1376,18 +1376,21 @@ section {
 }
 
 .contact .contact-form input,
-.contact .contact-form textarea {
-  border-radius: 4px;
+.contact .contact-form textarea,
+.contact .contact-form select {
+  border-radius: 2rem;
   box-shadow: none;
   font-size: 14px;
 }
 
 .contact .contact-form input:focus,
-.contact .contact-form textarea:focus {
+.contact .contact-form textarea:focus,
+.contact .contact-form select:focus {
   border-color: #008fd5;
 }
 
-.contact .contact-form input {
+.contact .contact-form input,
+.contact .contact-form select {
   height: 44px;
 }
 
@@ -1401,7 +1404,7 @@ section {
   padding: 10px 35px;
   color: #fff;
   transition: 0.4s;
-  border-radius: 50px;
+  border-radius: 2rem;
 }
 
 .contact .contact-form button[type=submit]:hover {
