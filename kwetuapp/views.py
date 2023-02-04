@@ -8,7 +8,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_str
 from kwetuproject import settings
 from .token_1 import generate_token
-from . forms import ProfileForm
+from . forms import *
 from . models import *
 from django.core.mail import EmailMessage, send_mail
 
@@ -102,16 +102,19 @@ def profile(request):
 
 def updateprofile(request):
     if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
-        if profile_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
             profile_form.save()
             messages.success(request, "Your Kwetu Account Profile Has Been Update Successfully.")
             return redirect('/')
         else:
-            messages.error(request, "Sorry, Kwetu Account Profile Update Failed, Try Again Later.")
+            messages.error(request, "Sorry, your account update failed. Please try again later.")
     else:
+        user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, "home.html")
+    return render(request, 'home.html')
 
 def signout(request):
     logout(request)
