@@ -9,7 +9,7 @@ from django.utils.encoding import force_bytes, force_str
 from kwetuproject import settings
 from .token_1 import generate_token
 from . forms import ProfileForm
-from . models import Profile, Contacts
+from . models import *
 from django.core.mail import EmailMessage, send_mail
 
 # Create your views here.
@@ -136,8 +136,35 @@ def activate(request, uidb64, token):
         return redirect('/')
 
 def about(request):
-    return render(request, 'about.html')
+    context = {
+        'Testimonials' : Testimonial.objects.all(),
+    }
+    return render(request, 'about.html', context)
 
+def add_new_testimonial(request):
+    if request.method == 'POST':
+        tname = request.POST['tname']
+        ttitle = request.POST['ttitle']
+        testimonial = request.POST['testimonial']
+
+        new_testimonial = Testimonial(tname=tname, ttitle=ttitle, testimonial=testimonial)
+        new_testimonial.save()
+        messages.success(request, "New Testimonial Has Been Added Successfully.")
+        return redirect('/about/')
+    else:
+        messages.error(request, "Failure To Add New Testimonial, Please Contact Tech Team And Try Again Later.")
+        return render(request, 'about.html')
+    
+def delete_testimonial(request, testimonialid):
+    if testimonialid:
+        del_testimonal = Testimonial.objects.filter(id=testimonialid)
+        del_testimonal.delete()
+        messages.success(request, "Testimonial Deleted Successfully")
+        return redirect('/about/')
+    else:
+        messages.error(request, "Failed To Delete Testimonial, Please Contact Tech Team And Try Again")
+        return render(request, 'about.html')
+    
 def services(request):
     return render(request, 'services.html')
 
@@ -178,8 +205,10 @@ def contact(request):
         #to_list = [contact_admin_email, contact_email]
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-        new_message = Contacts(contact_name = contact_name, contact_email = contact_email, contact_subject = contact_subject, contact_message = contact_message)
+        new_message = Contact(contact_name = contact_name, contact_email = contact_email, contact_subject = contact_subject, contact_message = contact_message)
         new_message.save()
-        messages.success(request, "MESSAGE SENT, THANK YOU FOR CONTACTING KWETU")
-
-    return render(request, 'contact.html')
+        messages.success(request, "Message Sent, Thank You For Contacting Kwetu.")
+        return redirect('contact')
+    else:
+        messages.error(request, "Message Failed To Send, Try Again Later")
+        return render(request, 'contact.html')

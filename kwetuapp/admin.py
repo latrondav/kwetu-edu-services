@@ -1,10 +1,13 @@
 from django.contrib import admin
-from . models import Contacts, Profile
+from . models import *
 
 # Register your models here.
 admin.site.register(Profile)
-@admin.register(Contacts)
-class ContactsAdmin(admin.ModelAdmin):
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
     list_display = ('contact_name', 'contact_email',)
     ordering = ('contact_name',)
     search_fields = ('contact_name', 'contact_email',)
+
+
+admin.site.register(Testimonial)
