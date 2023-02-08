@@ -260,7 +260,10 @@ def team(request):
     return render(request, 'team.html', context)
 
 def upcoming_events(request):
-    return render(request, 'upcoming_events.html')
+    context = {
+        'UEvents' : Events.objects.all(),
+    }
+    return render(request, 'upcoming_events.html', context)
 
 def past_events(request):
     return render(request, 'past_events.html')

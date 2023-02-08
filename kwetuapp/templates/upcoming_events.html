@@ -36,32 +36,21 @@
       
             <div class="row">
 
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-1.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Essay Writing</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
-                    <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                    <div class="text-center"><a href="#" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-2.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Public Speech</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
-                    <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
-                    <div class="text-center"><a href="#" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+              {% for uevent in UEvents %}
+                <div class="col-md-6 d-flex align-items-stretch">
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                    </div>
+                    <div class="card-body" style="border-radius: 2rem;">
+                      <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
+                      <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
+                      <p class="card-text text-center">{{ uevent.edescription }}</p>
+                      <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+                    </div>
                   </div>
                 </div>
+              {% endfor %}
       
               </div>
 
@@ -84,26 +73,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="text-center">
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr class="text-center">
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>@fat</td>
-                    </tr>
+                    {% for uevent in UEvents %}
+                      <tr class="text-center">
+                        <th scope="row">1</th>
+                        <td><img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem; width: 75px; height: 75px;"></td>
+                        <td>{{ uevent.ename }}</td>
+                        <td>{{ uevent.edate }}</td>
+                        <td>{{ uevent.etime }}</td>
+                        <td>{{ uevent.edescription }}</td>
+                        <td>{{ uevent.elink }}</td>
+                        <td> 
+                          <button type="submit" class="btn btn-sm btn-info" style="border-radius: 2rem;"> <strong>Edit</strong> </button>
+                          <button type="submit" class="btn btn-sm btn-danger" style="border-radius: 2rem;"> <strong>Delete</strong> </button>
+                         </td>
+                      </tr>
+                    {% endfor %}
 
                   </tbody>
                 </table>
