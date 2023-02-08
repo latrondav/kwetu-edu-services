@@ -260,10 +260,30 @@ def team(request):
     return render(request, 'team.html', context)
 
 def upcoming_events(request):
-    return render(request, 'events.html')
+    return render(request, 'upcoming_events.html')
 
 def past_events(request):
     return render(request, 'past_events.html')
+
+def add_event(request):
+    if request.method == 'POST':
+        eimage = request.FILES.get('eimage')
+        ename = request.POST.get('ename')
+        edate = request.POST.get('edate')
+        etime = request.POST.get('etime')
+        edescription = request.POST.get('edescription')
+        elink = request.POST.get('elink')
+
+        event = Events(eimage=eimage, ename=ename, edate=edate, etime=etime, edescription=edescription, elink=elink)
+        try:
+            event.save()
+            messages.success(request, 'Event Successfully Added.')
+            return redirect('/upcoming_events/')
+        except:
+            messages.error(request, 'Failed To Add Event. Please Contact Tech Team And Try Again Later.')
+            return redirect('/upcoming_events/')
+    else:
+        return render(request, 'upcoming_event.html')
 
 def members(request):
     context={
@@ -300,12 +320,12 @@ def contact(request):
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
 
         new_message = Contact(contact_name = contact_name, contact_email = contact_email, contact_subject = contact_subject, contact_message = contact_message)
-        if new_message:
+        try:
             new_message.save()
             messages.success(request, "Message Sent, Thank You For Contacting Kwetu.")
-            return redirect('contact')
-        else:
+            return redirect('/contact/')
+        except:
             messages.error(request, "Message Failed To Send, Try Again Later")
-            return redirect('contact')
+            return redirect('/contact/')
     else:
         return render(request, 'contact.html')
