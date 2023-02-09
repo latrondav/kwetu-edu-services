@@ -62,7 +62,7 @@
                         {% if pevent.epytlink %}
                           <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
                         {% else %}
-                          <a href="#" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </a>
+                          <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
                         {% endif %}
                       </div>
 
@@ -103,10 +103,10 @@
                             </td>
                             <td>
                               {% if pevent.eparlink %}
-                              <audio controls>
-                                <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                              </audio>
+                                <audio controls>
+                                  <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
+                                  Your browser does not support the audio element.
+                                </audio>
                               {% else %}
                                 <p>No Audio File</p>
                               {% endif %}

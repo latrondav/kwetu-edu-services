@@ -286,7 +286,7 @@ def upcoming_events(request):
     }
     return render(request, 'upcoming_events.html', context)
 
-def update_uevent(request, ueventid):
+def update_upcoming_event(request, ueventid):
     uevent = Event.objects.get(id=ueventid)
     if request.method == 'POST':
         uevent.ename = request.POST['ename']
@@ -312,7 +312,7 @@ def update_uevent(request, ueventid):
     else:
         return render(request, 'upcoming_events.html')
 
-def delete_uevent(request, ueventid):
+def delete_upcoming_event(request, ueventid):
     try:
         event = Event.objects.get(id=ueventid)
         event.delete()
@@ -328,7 +328,7 @@ def past_events(request):
     }
     return render(request, 'past_events.html', context)
 
-def update_pevent(request, peventid):
+def update_past_event(request, peventid):
     pevent = Event.objects.get(id=peventid)
     if request.method == 'POST':
         pevent.epytlink = request.POST.get('epytlink')
@@ -346,7 +346,7 @@ def update_pevent(request, peventid):
     else:
         return render(request, 'past_events.html')
 
-def delete_pevent(request, peventid):
+def delete_past_event(request, peventid):
     try:
         event = Event.objects.get(id=peventid)
         event.delete()
