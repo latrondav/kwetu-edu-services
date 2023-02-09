@@ -75,20 +75,19 @@
                   <tbody>
                     {% for uevent in UEvents %}
                       <tr class="text-center">
-                        <th scope="row">1</th>
+                        <th scope="row">{{ forloop.counter }}</th>
                         <td><img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem; width: 75px; height: 75px;"></td>
                         <td>{{ uevent.ename }}</td>
                         <td>{{ uevent.edate }}</td>
                         <td>{{ uevent.etime }}</td>
                         <td>{{ uevent.edescription }}</td>
                         <td>{{ uevent.elink }}</td>
-                        <td> 
+                        <td>
                           <button type="submit" class="btn btn-sm btn-info" style="border-radius: 2rem;"> <strong>Edit</strong> </button>
                           <button type="submit" class="btn btn-sm btn-danger" style="border-radius: 2rem;"> <strong>Delete</strong> </button>
-                         </td>
+                        </td>
                       </tr>
                     {% endfor %}
-
                   </tbody>
                 </table>
               </div>
