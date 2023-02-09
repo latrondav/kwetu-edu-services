@@ -11,3 +11,4 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(Testimonial)
 admin.site.register(Service)
+admin.site.register(Event)

@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -259,14 +260,34 @@ def team(request):
     }
     return render(request, 'team.html', context)
 
+def add_event(request):
+    if request.method == 'POST':
+        eimage = request.FILES.get('eimage')
+        ename = request.POST.get('ename')
+        edate = request.POST.get('edate')
+        etime = request.POST.get('etime')
+        edescription = request.POST.get('edescription')
+        elink = request.POST.get('elink')
+
+        event = Event(eimage=eimage, ename=ename, edate=edate, etime=etime, edescription=edescription, elink=elink)
+        try:
+            event.save()
+            messages.success(request, 'Event Successfully Added.')
+            return redirect('/uevents/')
+        except:
+            messages.error(request, 'Failed To Add Event. Please Contact Tech Team And Try Again Later.')
+            return redirect('/uevents/')
+    else:
+        return render(request, 'upcoming_event.html')
+
 def upcoming_events(request):
     context = {
-        'UEvents' : Events.objects.all(),
+        'UEvents': Event.objects.filter(Q(edate__gte=datetime.date.today()) | Q(edate=datetime.date.today(), etime__gte=datetime.datetime.now().time())),
     }
     return render(request, 'upcoming_events.html', context)
 
 def update_uevent(request, ueventid):
-    uevent = Events.objects.get(id=ueventid)
+    uevent = Event.objects.get(id=ueventid)
     if request.method == 'POST':
         uevent.ename = request.POST['ename']
         uevent.edescription = request.POST['edescription']
@@ -283,46 +304,57 @@ def update_uevent(request, ueventid):
 
         try:
             uevent.save()
-            messages.success(request, 'Event Updated Successfully.')
+            messages.success(request, 'Upcoming Event Updated Successfully.')
             return redirect('/uevents/')
         except:
-            messages.error(request, 'Failed To Update Event, Please Contact Tech Team And Try Again Later.')
+            messages.error(request, 'Failed To Update Upcoming Event, Please Contact Tech Team And Try Again Later.')
             return redirect('/uevents/')
     else:
         return render(request, 'upcoming_events.html')
 
 def delete_uevent(request, ueventid):
     try:
-        event = Events.objects.get(id=ueventid)
+        event = Event.objects.get(id=ueventid)
         event.delete()
-        messages.success(request, "Event Deleted Successfully")
+        messages.success(request, "Upcoming Event Deleted Successfully")
         return redirect('/uevents/')
     except:
-        messages.error(request, "Event Deletion Failed, Please Contact Tech Team And Try Again Later.")
+        messages.error(request, "Upcoming Event Deletion Failed, Please Contact Tech Team And Try Again Later.")
         return redirect('/uevents/')
 
 def past_events(request):
-    return render(request, 'past_events.html')
+    context = {
+        'PEvents': Event.objects.filter(Q(edate__lt=datetime.datetime.now().date()) | Q(edate=datetime.datetime.now().date(), etime__lt=datetime.datetime.now().time()))
+    }
+    return render(request, 'past_events.html', context)
 
-def add_event(request):
+def update_pevent(request, peventid):
+    pevent = Event.objects.get(id=peventid)
     if request.method == 'POST':
-        eimage = request.FILES.get('eimage')
-        ename = request.POST.get('ename')
-        edate = request.POST.get('edate')
-        etime = request.POST.get('etime')
-        edescription = request.POST.get('edescription')
-        elink = request.POST.get('elink')
+        pevent.epytlink = request.POST.get('epytlink')
 
-        event = Events(eimage=eimage, ename=ename, edate=edate, etime=etime, edescription=edescription, elink=elink)
+        if request.FILES.get('eparlink'):
+            pevent.eparlink = request.FILES.get('eparlink')
+    
         try:
-            event.save()
-            messages.success(request, 'Event Successfully Added.')
-            return redirect('/upcoming_events/')
+            pevent.save()
+            messages.success(request, 'Past Event Updated Successfully.')
+            return redirect('/pevents/')
         except:
-            messages.error(request, 'Failed To Add Event. Please Contact Tech Team And Try Again Later.')
-            return redirect('/upcoming_events/')
+            messages.error(request, 'Failed To Update Past Event, Please Contact Tech Team And Try Again Later.')
+            return redirect('/pevents/')
     else:
-        return render(request, 'upcoming_event.html')
+        return render(request, 'past_events.html')
+
+def delete_pevent(request, peventid):
+    try:
+        event = Event.objects.get(id=peventid)
+        event.delete()
+        messages.success(request, "Past Event Deleted Successfully")
+        return redirect('/pevents/')
+    except:
+        messages.error(request, "Past Event Deletion Failed, Please Contact Tech Team And Try Again Later.")
+        return redirect('/pevents/')
 
 def members(request):
     context={

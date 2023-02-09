@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -38,13 +39,16 @@ class Service(models.Model):
     def __str__(self):
         return str(self.stitle)
 
-class Events(models.Model):
-    eimage= models.ImageField(upload_to='Events Images', null=False, blank=False, default='event.jpg')
-    ename= models.CharField(max_length=255, null=False, blank=False)
-    edate= models.DateField(max_length=255, null=False, blank=False)
-    etime= models.TimeField(max_length=255, null=False, blank=False)
-    edescription= models.TextField(max_length=255, null=False, blank=False)
-    elink= models.CharField(max_length=255, null=False, blank=False)
+
+class Event(models.Model):
+    eimage = models.ImageField(upload_to='Events Images', null=False, blank=False, default='event.jpg')
+    ename = models.CharField(max_length=255, null=False, blank=False)
+    edate = models.DateField(max_length=255, null=False, blank=False)
+    etime = models.TimeField(max_length=255, null=False, blank=False)
+    edescription = models.TextField(max_length=255, null=False, blank=False)
+    elink = models.CharField(max_length=255, null=False, blank=False)
+    eparlink = models.FileField(upload_to='Event Audios', null=False, blank=False, default='eaudios.mp3')
+    epytlink = models.CharField(max_length=255, null=False, blank=False)
 
     def __str__(self):
         return str(self.ename)
