@@ -265,6 +265,42 @@ def upcoming_events(request):
     }
     return render(request, 'upcoming_events.html', context)
 
+def update_uevent(request, ueventid):
+    uevent = Events.objects.get(id=ueventid)
+    if request.method == 'POST':
+        uevent.ename = request.POST['ename']
+        uevent.edescription = request.POST['edescription']
+        uevent.elink = request.POST['elink']
+
+        if request.FILES.get('eimage'):
+            uevent.eimage = request.FILES.get('eimage')
+
+        if request.POST['edate']:
+            uevent.edate = request.POST['edate']
+
+        if request.POST['etime']:
+            uevent.etime = request.POST['etime']
+
+        try:
+            uevent.save()
+            messages.success(request, 'Event Updated Successfully.')
+            return redirect('/uevents/')
+        except:
+            messages.error(request, 'Failed To Update Event, Please Contact Tech Team And Try Again Later.')
+            return redirect('/uevents/')
+    else:
+        return render(request, 'upcoming_events.html')
+
+def delete_uevent(request, ueventid):
+    try:
+        event = Events.objects.get(id=ueventid)
+        event.delete()
+        messages.success(request, "Event Deleted Successfully")
+        return redirect('/uevents/')
+    except:
+        messages.error(request, "Event Deletion Failed, Please Contact Tech Team And Try Again Later.")
+        return redirect('/uevents/')
+
 def past_events(request):
     return render(request, 'past_events.html')
 
