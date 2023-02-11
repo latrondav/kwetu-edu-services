@@ -375,6 +375,10 @@ def update_member(request):
             user = User.objects.get(id=member_id)
             user.is_staff = True
             user.save()
+        else:
+            user = User.objects.get(id=member_id)
+            user.is_staff = False
+            user.save()
 
         messages.success(request, "Member Position Updated Successfully")
         return redirect('/members/')

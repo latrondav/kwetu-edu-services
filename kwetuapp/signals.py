@@ -12,7 +12,5 @@ def create_profile(sender, instance, created, **kwargs):
 def save_profile(sender, instance, **kwargs):
     if instance.is_staff:
         instance.profile.position = 'Team Member'
-    else:
-        instance.profile.position = 'Normal Member'
     instance.profile.save()
     
