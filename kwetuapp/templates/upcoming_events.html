@@ -28,7 +28,8 @@
               </strong>
             </p>
           </div>
-        </div><!-- End Breadcrumbs -->
+        </div>
+        <!-- End Breadcrumbs -->
       
         <!-- ======= Events Section ======= -->
         <section id="events" class="events">
@@ -52,8 +53,6 @@
                 </div>
               {% endfor %}
       
-              </div>
-
               <div class="text-center">
                 <a class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddEventModal"> <strong>Add Upcoming Event</strong> </a>
               </div>
@@ -113,7 +112,8 @@
             </div>
       
           </div>
-        </section><!-- End Events Section -->
+        </section>
+        <!-- End Events Section -->
       
         <!--================Model Area =================-->
         <div class="modal fade" id="AddEventModal" tabindex="-1" role="dialog" aria-labelledby="AddEventModalLabel" aria-hidden="true">
@@ -199,44 +199,143 @@
           <div class="container" data-aos="fade-up">
       
             <div class="row">
-      
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-1.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Essay Writing</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
-                    <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                    <div class="text-center"><a href="#" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
-                  </div>
-                </div>
-              </div>
-      
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-2.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Public Speech</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
-                    <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
-                    <div class="text-center"><a href="#" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+
+              {% for uevent in UEvents %}
+                <div class="col-md-6 d-flex align-items-stretch">
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                    </div>
+                    <div class="card-body" style="border-radius: 2rem;">
+                      <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
+                      <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
+                      <p class="card-text text-center">{{ uevent.edescription }}</p>
+                      <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+                    </div>
                   </div>
                 </div>
-      
-              </div>
+              {% endfor %}
       
               <div class="text-center">
-                <button class="btn btn-primary" style="border-radius: 2rem;"> <strong>Add Upcoming Event</strong> </button>
+                <a class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddEventModal"> <strong>Add Upcoming Event</strong> </a>
               </div>
-      
+
+              <div class="table-responsive mt-5">
+                <table class="table">
+                  <thead>
+                    <tr class="text-center">
+                      <th scope="col">#</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Link</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for uevent in UEvents %}
+                      <tr class="text-center">
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <form action="/updateuevent/{{ uevent.id }}/" method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
+                            <td>
+                              <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem; width: 75px; height: 75px;">
+                              <input type="file" class="form-control mt-2 text-center" style="border-radius: 2rem; width: 120px;" name="eimage" id="eimage" >
+                            </td>
+                            <td>
+                              <input type="text" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="ename" id="ename" value="{{ uevent.ename }}">
+                            </td>
+                            <td>
+                              <label for="edate">{{ uevent.edate }}</label>
+                              <input type="date" class="form-control mt-2 text-center" style="border-radius: 2rem;" name="edate" id="edate" > 
+                            </td>
+                            <td>
+                              <label for="etime">{{ uevent.etime }}</label>
+                              <input type="time" class="form-control mt-2 text-center" style="border-radius: 2rem;" name="etime" id="etime">
+                            </td>
+                            <td>
+                              <textarea class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="edescription" id="edescription" rows="5">{{ uevent.edescription }}</textarea>
+                            </td>
+                            <td>
+                              <input type="text" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="elink" id="elink" value="{{ uevent.elink }}">
+                            </td>
+                            <td>
+                              <button type="submit" class="btn btn-sm btn-info text-white" style="border-radius: 2rem; margin: 5px;"> <strong>Edit</strong> </button>
+                        </form>
+                          <a class="btn btn-sm btn-danger" style="border-radius: 2rem; margin: 5px;" href="/deleteuevent/{{ uevent.id }}/"> <strong>Delete</strong> </button>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
             </div>
       
           </div>
-        </section><!-- End Events Section -->
+        </section>
+        <!-- End Events Section -->
+      
+        <!--================Model Area =================-->
+        <div class="modal fade" id="AddEventModal" tabindex="-1" role="dialog" aria-labelledby="AddEventModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content model-lg">
+              <div class="modal-header">
+                <button type="button" class="close btn-danger" style="border-radius: 10rem;" data-dismiss="modal"
+                  aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="container" style="border-radius: 2rem; background: #7bccee;">
+                  <form action="/addevent/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                      <center>
+                        <h2><strong>Add Event Form</strong></h2>
+                      </center>
+
+                      <div class="row">
+                        <div class="col-lg-6 text-center mt-2 mb-2">
+                          <label for="edate"> <strong>Event Image</strong> </label>
+                          <input type="file" class="form-control text-center" style="border-radius: 2rem;" name="eimage" id="eimage" required="">
+                        </div>
+
+                        <div class="col-lg-6 mt-2 mb-2">
+                          <label for="ename"></label>
+                          <input type="text" class="form-control text-center" style="border-radius: 2rem;" name="ename" id="ename" placeholder="Event Name" required="">
+                        </div>
+                      
+                        <div class="col-lg-6 text-center mt-2 mb-2">
+                          <label for="edate"> <strong>Event Date</strong> </label>
+                          <input type="date" class="form-control text-center" style="border-radius: 2rem;" name="edate" id="edate" required="">
+                        </div>
+
+                        <div class="col-lg-6 text-center mt-2 mb-2">
+                          <label for="etime"> <strong>Event Time</strong> </label>
+                          <input type="time" class="form-control text-center" style="border-radius: 2rem;" name="etime" id="etime" required="">
+                        </div>
+                      
+                        <div class="col-lg-12 mt-2 mb-2">
+                          <textarea class="form-control text-center" style="border-radius: 2rem;" name="edescription" id="edescription" rows="5"  placeholder="Event Description" required=""></textarea>
+                        </div>
+
+                        <div class="col-lg-12 mt-2 mb-2">
+                          <input class="form-control text-center" style="border-radius: 2rem;" type="text" name="elink" id="elink" placeholder="Event Link" required="">
+                        </div>
+
+                        <center class="mb-2">
+                          <button class="btn btn-sm btn-primary" id="form-submit" style="width: fit-content; border-radius: 2rem;"> <strong>Add Event</strong> </button>
+                        </center>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--================Modal Area =================-->
       
       </main><!-- End #main -->
 
@@ -263,36 +362,24 @@
       
             <div class="row">
 
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-1.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Essay Writing</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 15th at 7:00 am</p>
-                    <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                    <div class="text-center"><a href="#" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
-                  </div>
-                </div>
-              </div>
-      
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-2.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Public Speech</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 22nd at 7:00 am</p>
-                    <p class="card-text text-center"> We shall learn to give speeches in kiswahili.</p>
-                    <div class="text-center"><a href="#" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+              {% for uevent in UEvents %}
+                <div class="col-md-6 d-flex align-items-stretch">
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                    </div>
+                    <div class="card-body" style="border-radius: 2rem;">
+                      <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
+                      <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
+                      <p class="card-text text-center">{{ uevent.edescription }}</p>
+                      <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+                    </div>
                   </div>
                 </div>
-      
-              </div>
+              {% endfor %}
               
             </div>
+            
           </div>
         </section><!-- End Events Section -->
       

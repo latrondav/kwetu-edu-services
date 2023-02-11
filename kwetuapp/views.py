@@ -367,8 +367,16 @@ def update_member(request):
         member_id = request.POST['member_id']
         position = request.POST['position']
 
-        Profile.objects.filter(user=member_id).update(position=position)
-        messages.success(request, "Member Postion Updated Successfully")
+        profile = Profile.objects.get(user=member_id)
+        profile.position = position
+        profile.save()
+
+        if profile.position == "Team Member":
+            user = User.objects.get(id=member_id)
+            user.is_staff = True
+            user.save()
+
+        messages.success(request, "Member Position Updated Successfully")
         return redirect('/members/')
     else:
         messages.error(request, "Failed To Update Member Postion, Please Contact Tech Team And Try Again Later.")

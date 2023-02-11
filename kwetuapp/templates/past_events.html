@@ -74,57 +74,57 @@
             </div>
 
             <div class="table-responsive mt-5">
-                <table class="table">
-                  <thead>
+              <table class="table">
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Audio File</th>
+                    <th scope="col">Youtube Link</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for pevent in PEvents %}
                     <tr class="text-center">
-                      <th scope="col">#</th>
-                      <th scope="col">Image</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Description</th>
-                      <th scope="col">Audio File</th>
-                      <th scope="col">Youtube Link</th>
-                      <th scope="col">Action</th>
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <form action="/updatepevent/{{ pevent.id }}/" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                          <td>
+                            <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem; width: 75px; height: 75px;">
+                          </td>
+                          <td>
+                            {{ pevent.ename }}
+                          </td>
+                          <td>
+                            {{ pevent.edescription }}
+                          </td>
+                          <td>
+                            {% if pevent.eparlink %}
+                              <audio controls>
+                                <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                              </audio>
+                            {% else %}
+                              <p>No Audio File</p>
+                            {% endif %}
+                            <input type="file" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="eparlink" id="eparlink">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="epytlink" id="epytlink" value="{{ pevent.epytlink }}">
+                          </td>
+                          <td>
+                            <button type="submit" class="btn btn-sm btn-info text-white" style="border-radius: 2rem; margin: 5px;"> <strong>Edit</strong> </button>
+                      </form>
+                        <a class="btn btn-sm btn-danger" style="border-radius: 2rem; margin: 5px;" href="/deletepevent/{{ pevent.id }}/"> <strong>Delete</strong> </button>
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {% for pevent in PEvents %}
-                      <tr class="text-center">
-                        <th scope="row">{{ forloop.counter }}</th>
-                        <form action="/updatepevent/{{ pevent.id }}/" method="POST" enctype="multipart/form-data">
-                          {% csrf_token %}
-                            <td>
-                              <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem; width: 75px; height: 75px;">
-                            </td>
-                            <td>
-                              {{ pevent.ename }}
-                            </td>
-                            <td>
-                              {{ pevent.edescription }}
-                            </td>
-                            <td>
-                              {% if pevent.eparlink %}
-                                <audio controls>
-                                  <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
-                                  Your browser does not support the audio element.
-                                </audio>
-                              {% else %}
-                                <p>No Audio File</p>
-                              {% endif %}
-                              <input type="file" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="eparlink" id="eparlink">
-                            </td>
-                            <td>
-                              <input type="text" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="epytlink" id="epytlink" value="{{ pevent.epytlink }}">
-                            </td>
-                            <td>
-                              <button type="submit" class="btn btn-sm btn-info text-white" style="border-radius: 2rem; margin: 5px;"> <strong>Edit</strong> </button>
-                        </form>
-                          <a class="btn btn-sm btn-danger" style="border-radius: 2rem; margin: 5px;" href="/deletepevent/{{ pevent.id }}/"> <strong>Delete</strong> </button>
-                        </td>
-                      </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-              </div>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
       
           </div>
         </section><!-- End Events Section -->
@@ -154,40 +154,94 @@
       
             <div class="row">
 
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-1.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Introduction to Kiswahili Language</a></h5>
-                    <p class="fst-italic text-center">Tuesday, September 25th at 7:00 am</p>
-                    <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                    <div class="text-center">
-                      <a href="#" class="btn btn-success" style="margin-right: 2px; border-radius: 2rem;"> <strong>Listen</strong> </a>
-                      <a href="#" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"> <strong>Watch</strong> </a>
+              {% for pevent in PEvents %}
+                <div class="col-md-6 d-flex align-items-stretch">
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
                     </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-2.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Pronunciation In Kiswahili</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 1st at 7:00 am</p>
-                    <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                    <div class="text-center">
-                      <a href="#" class="btn btn-success" style="margin-right: 2px; border-radius: 2rem;"> <strong>Listen</strong> </a>
-                      <a href="#" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"> <strong>Watch</strong> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    <div class="card-body" style="border-radius: 2rem;">
+                      <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
+                      <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
+                      <p class="card-text text-center">{{ pevent.edescription }}</p>
 
+                      <div class="text-center mt-2">
+                        {% if pevent.eparlink %}
+                          <audio controls>
+                            <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                          </audio>
+                        {% else %}
+                          <p>No Audio File</p>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="text-center mt-2">
+                        {% if pevent.epytlink %}
+                          <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
+                        {% else %}
+                          <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
+                        {% endif %}
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+
+            </div>
+
+            <div class="table-responsive mt-5">
+              <table class="table">
+                <thead>
+                  <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Audio File</th>
+                    <th scope="col">Youtube Link</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for pevent in PEvents %}
+                    <tr class="text-center">
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <form action="/updatepevent/{{ pevent.id }}/" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                          <td>
+                            <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem; width: 75px; height: 75px;">
+                          </td>
+                          <td>
+                            {{ pevent.ename }}
+                          </td>
+                          <td>
+                            {{ pevent.edescription }}
+                          </td>
+                          <td>
+                            {% if pevent.eparlink %}
+                              <audio controls>
+                                <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                              </audio>
+                            {% else %}
+                              <p>No Audio File</p>
+                            {% endif %}
+                            <input type="file" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="eparlink" id="eparlink">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control text-center" style="border-radius: 2rem; width: fit-content;" name="epytlink" id="epytlink" value="{{ pevent.epytlink }}">
+                          </td>
+                          <td>
+                            <button type="submit" class="btn btn-sm btn-info text-white" style="border-radius: 2rem; margin: 5px;"> <strong>Edit</strong> </button>
+                      </form>
+                        <a class="btn btn-sm btn-danger" style="border-radius: 2rem; margin: 5px;" href="/deletepevent/{{ pevent.id }}/"> <strong>Delete</strong> </button>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
             </div>
       
           </div>
@@ -218,41 +272,43 @@
       
             <div class="row">
 
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-1.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Introduction to Kiswahili Language</a></h5>
-                    <p class="fst-italic text-center">Tuesday, September 25th at 7:00 am</p>
-                    <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                    <div class="text-center">
-                      <a href="#" class="btn btn-success" style="margin-right: 2px; border-radius: 2rem;"> <strong>Listen</strong> </a>
-                      <a href="#" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"> <strong>Watch</strong> </a>
+              {% for pevent in PEvents %}
+                <div class="col-md-6 d-flex align-items-stretch">
+                  <div class="card">
+                    <div class="card-img">
+                      <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                    </div>
+                    <div class="card-body" style="border-radius: 2rem;">
+                      <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
+                      <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
+                      <p class="card-text text-center">{{ pevent.edescription }}</p>
+
+                      <div class="text-center mt-2">
+                        {% if pevent.eparlink %}
+                          <audio controls>
+                            <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                          </audio>
+                        {% else %}
+                          <p>No Audio File</p>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="text-center mt-2">
+                        {% if pevent.epytlink %}
+                          <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
+                        {% else %}
+                          <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
+                        {% endif %}
+                      </div>
+
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              <div class="col-md-6 d-flex align-items-stretch">
-                <div class="card">
-                  <div class="card-img">
-                    <img src="{% static 'assets/img/events-2.jpg' %}" alt="..." style="border-radius: 2rem;">
-                  </div>
-                  <div class="card-body" style="border-radius: 2rem;">
-                    <h5 class="card-title"><a href="">Pronunciation In Kiswahili</a></h5>
-                    <p class="fst-italic text-center">Tuesday, November 1st at 7:00 am</p>
-                    <p class="card-text text-center">Our team wil introduce the language to you.</p>
-                    <div class="text-center">
-                      <a href="#" class="btn btn-success" style="margin-right: 2px; border-radius: 2rem;"> <strong>Listen</strong> </a>
-                      <a href="#" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"> <strong>Watch</strong> </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
 
             </div>
+            
           </div>
         </section><!-- End Events Section -->
       
