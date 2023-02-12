@@ -121,33 +121,37 @@ def update_profile(request):
             profile.image = image
 
         if user.email != new_email:
-            user.email = new_email
-            user.username = new_email
-            user.is_active = False
-            user.save()
-            profile.save()
+            if User.objects.filter(email=new_email):
+                messages.error(request, "Another Kwetu Member Is Using The New Email Submitted, Please Use A Unique Email.")
+                return redirect('/')
+            else:
+                user.email = new_email
+                user.username = new_email
+                user.is_active = False
+                user.save()
+                profile.save()
 
-            # send email to the new email address for reactivation
-            current_site = get_current_site(request)
-            email_subject = "KWETU REACTIVATION EMAIL"
-            message = render_to_string('email_reactivation.html', {
-                'name': user.first_name,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': generate_token.make_token(user)
-            })
-            email = EmailMessage(
-                email_subject,
-                message,
-                settings.EMAIL_HOST_USER,
-                [user.email],
-            )
-            email.fail_silently = True
-            email.send()
+                # send email to the new email address for reactivation
+                current_site = get_current_site(request)
+                email_subject = "KWETU REACTIVATION EMAIL"
+                message = render_to_string('email_reactivation.html', {
+                    'name': user.first_name,
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': generate_token.make_token(user)
+                })
+                email = EmailMessage(
+                    email_subject,
+                    message,
+                    settings.EMAIL_HOST_USER,
+                    [user.email],
+                )
+                email.fail_silently = True
+                email.send()
 
-            logout(request)
-            messages.success(request, 'Your Profile And New Email Address Have Been Updated Hence Deactivating Your Account Until New Email Is Confirmed. Please Check Your New Email To Reactivate Your Account.')
-            return redirect('/')
+                logout(request)
+                messages.success(request, 'Your Profile And New Email Address Have Been Updated Hence Deactivating Your Account Until New Email Is Confirmed. Please Check Your New Email To Reactivate Your Account.')
+                return redirect('/')
         else:
             user.save()
             profile.save()
