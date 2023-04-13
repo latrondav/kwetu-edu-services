@@ -11,7 +11,11 @@ from django.utils.encoding import force_bytes, force_str
 from kwetuproject import settings
 from .token_1 import generate_token
 from . models import *
-from django.core.mail import EmailMessage, send_mail
+from django.core.mail import EmailMessage
+from django.utils.html import strip_tags
+from django.core.mail import EmailMultiAlternatives
+from functools import lru_cache
+from email.mime.image import MIMEImage
 
 # Create your views here.
 def home(request):
@@ -402,7 +406,7 @@ def contact(request):
         contact_email = request.POST['contact_email']
         contact_subject = request.POST['contact_subject']
         contact_message = request.POST['contact_message']
-        #contact_admin_email = "latrondav@gmail.com"
+        contact_admin_email = "latrondav@gmail.com"
 
         # Contact Email
 
@@ -411,6 +415,50 @@ def contact(request):
         #from_email = settings.EMAIL_HOST_USER
         #to_list = [contact_admin_email, contact_email]
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
+
+        html_content = render_to_string('receiver-contact-email.html', {
+            'contact_name': contact_name,
+            'contact_email': contact_email,
+            'contact_subject': contact_subject,
+            'contact_message': contact_message
+        })
+        subject = contact_subject
+        text_content = strip_tags(html_content)
+        email = EmailMultiAlternatives(
+            subject,
+            text_content,
+            settings.EMAIL_HOST_USER,
+            [contact_admin_email,]
+        )
+        email.mixed_subtype = 'related'
+        email.attach_alternative(html_content, "text/html")
+        email.attach(logo_data())
+        email.attach(instagram_data())
+        email.attach(facebook_data())
+        email.attach(whatsapp_data())
+        email.send()
+
+        html_content = render_to_string('sender-contact-email.html', {
+            'contact_name': contact_name,
+            'contact_email': contact_email,
+            'contact_subject': contact_subject,
+            'contact_message': contact_message
+        })
+        subject = contact_subject
+        text_content = strip_tags(html_content)
+        email = EmailMultiAlternatives(
+            subject,
+            text_content,
+            settings.EMAIL_HOST_USER,
+            [contact_email,]
+        )
+        email.mixed_subtype = 'related'
+        email.attach_alternative(html_content, "text/html")
+        email.attach(logo_data())
+        email.attach(instagram_data())
+        email.attach(facebook_data())
+        email.attach(whatsapp_data())
+        email.send()
 
         new_message = Contact(contact_name = contact_name, contact_email = contact_email, contact_subject = contact_subject, contact_message = contact_message)
         try:
@@ -422,3 +470,69 @@ def contact(request):
             return redirect('/contact/')
     else:
         return render(request, 'contact.html')
+    
+@lru_cache()
+def whatsapp_data():
+    with open('kwetuapp/templates/images/whatsapp2x.png', 'rb') as W: whatsapp_data = W.read()
+    whatsapp = MIMEImage(whatsapp_data)
+    whatsapp.add_header('Content-ID', '<whatsapp>')
+    return whatsapp
+
+@lru_cache()
+def instagram_data():
+    with open('kwetuapp/templates/images/instagram2x.png', 'rb') as I: instagram_data = I.read()
+    instagram = MIMEImage(instagram_data)
+    instagram.add_header('Content-ID', '<instagram>')
+    return instagram
+
+@lru_cache()
+def facebook_data():
+    with open('kwetuapp/templates/images/facebook2x.png', 'rb') as F:facebook_data = F.read()
+    facebook = MIMEImage(facebook_data)
+    facebook.add_header('Content-ID', '<facebook>')
+    return facebook
+
+
+@lru_cache()
+def logo_data():
+    with open('kwetuapp/templates/images/kwetulogo.png', 'rb') as L:
+        logo_data = L.read()
+    logo = MIMEImage(logo_data)
+    logo.add_header('Content-ID', '<logo>')
+    return logo
+
+
+@lru_cache()
+def divider_data():
+    with open('kwetuapp/templates/images/divider.png', 'rb') as D:
+        divider_data = D.read()
+    divider = MIMEImage(divider_data)
+    divider.add_header('Content-ID', '<divider>')
+    return divider
+
+
+@lru_cache()
+def linkedin_data():
+    with open('kwetuapp/templates/images/linkedin2x.png', 'rb') as L:
+        linkedin_data = L.read()
+    linkedin = MIMEImage(linkedin_data)
+    linkedin.add_header('Content-ID', '<linkedin>')
+    return linkedin
+
+
+@lru_cache()
+def twitter_data():
+    with open('kwetuapp/templates/images/twitter2x.png', 'rb') as T:
+        twitter_data = T.read()
+    twitter = MIMEImage(twitter_data)
+    twitter.add_header('Content-ID', '<twitter>')
+    return twitter
+
+
+@lru_cache()
+def youtube_data():
+    with open('kwetuapp/templates/images/youtube2x.png', 'rb') as Y:
+        youtube_data = Y.read()
+    youtube = MIMEImage(youtube_data)
+    youtube.add_header('Content-ID', '<youtube>')
+    return youtube
