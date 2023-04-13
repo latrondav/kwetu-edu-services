@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -199,9 +200,23 @@ def reactivate(request, uidb64, token):
         return redirect('/')
 
 def about(request):
+    num_members = User.objects.count()
+    num_students = Profile.objects.filter(position="Student").count()
+    num_upcoming_events = Event.objects.filter(Q(edate__gte=datetime.date.today()) | Q(edate=datetime.date.today(), etime__gte=datetime.datetime.now().time())).count()
+    num_past_events = Event.objects.filter(Q(edate__lt=datetime.datetime.now().date()) | Q(edate=datetime.datetime.now().date(), etime__lt=datetime.datetime.now().time())).count()
+    num_services = Service.objects.count()
+    num_team_members = Profile.objects.filter(position="Team Member").count()
+
     context = {
-        'Testimonials' : Testimonial.objects.all(),
+        'num_members': num_members,
+        'num_students': num_students,
+        'num_upcoming_events': num_upcoming_events,
+        'num_past_events': num_past_events,
+        'num_services': num_services,
+        'num_team_members': num_team_members,
+        'Testimonials': Testimonial.objects.all(),
     }
+
     return render(request, 'about.html', context)
 
 def add_new_testimonial(request):
