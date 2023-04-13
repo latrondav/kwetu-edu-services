@@ -416,7 +416,7 @@ def contact(request):
         #to_list = [contact_admin_email, contact_email]
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-        html_content = render_to_string('receiver-contact-mail.html', {
+        html_content = render_to_string('receiver_contact_mail.html', {
             'contact_name': contact_name,
             'contact_email': contact_email,
             'contact_subject': contact_subject,
@@ -436,9 +436,13 @@ def contact(request):
         email.attach(instagram_data())
         email.attach(facebook_data())
         email.attach(whatsapp_data())
+        email.attach(twitter_data())
+        email.attach(youtube_data())
+        email.attach(linkedin_data())
+        email.attach(divider_data())
         email.send()
 
-        html_content = render_to_string('sender-contact-mail.html', {
+        html_content = render_to_string('sender_contact_mail.html', {
             'contact_name': contact_name,
             'contact_email': contact_email,
             'contact_subject': contact_subject,
@@ -458,6 +462,10 @@ def contact(request):
         email.attach(instagram_data())
         email.attach(facebook_data())
         email.attach(whatsapp_data())
+        email.attach(twitter_data())
+        email.attach(youtube_data())
+        email.attach(linkedin_data())
+        email.attach(divider_data())
         email.send()
 
         new_message = Contact(contact_name = contact_name, contact_email = contact_email, contact_subject = contact_subject, contact_message = contact_message)
@@ -492,15 +500,13 @@ def facebook_data():
     facebook.add_header('Content-ID', '<facebook>')
     return facebook
 
-
 @lru_cache()
 def logo_data():
-    with open('kwetuapp/templates/images/kwetulogo.png', 'rb') as L:
+    with open('kwetuapp/templates/images/kwetulogo.jpg', 'rb') as L:
         logo_data = L.read()
     logo = MIMEImage(logo_data)
     logo.add_header('Content-ID', '<logo>')
     return logo
-
 
 @lru_cache()
 def divider_data():
@@ -510,7 +516,6 @@ def divider_data():
     divider.add_header('Content-ID', '<divider>')
     return divider
 
-
 @lru_cache()
 def linkedin_data():
     with open('kwetuapp/templates/images/linkedin2x.png', 'rb') as L:
@@ -519,7 +524,6 @@ def linkedin_data():
     linkedin.add_header('Content-ID', '<linkedin>')
     return linkedin
 
-
 @lru_cache()
 def twitter_data():
     with open('kwetuapp/templates/images/twitter2x.png', 'rb') as T:
@@ -527,7 +531,6 @@ def twitter_data():
     twitter = MIMEImage(twitter_data)
     twitter.add_header('Content-ID', '<twitter>')
     return twitter
-
 
 @lru_cache()
 def youtube_data():
