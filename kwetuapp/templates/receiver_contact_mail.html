@@ -99,7 +99,7 @@
 <table border="0" cellpadding="0" cellspacing="0" class="image_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="padding-left:20px;padding-right:20px;width:100%;">
-<div align="center" class="alignment" style="line-height:10px"><img alt="kwetu logo" src="images/apple-touch-icon.jpg" style="display: block; height: auto; border: 0; width: 210px; max-width: 100%;" title="kwetu logo" width="210"/></div>
+<div align="center" class="alignment" style="line-height:10px"><img alt="kwetu logo" src="cid:logo" style="display: block; height: auto; border: 0; width: 210px; max-width: 100%;" title="kwetu logo" width="210"/></div>
 </td>
 </tr>
 </table>
@@ -122,14 +122,7 @@
 <table border="0" cellpadding="0" cellspacing="0" class="heading_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="padding-bottom:5px;padding-top:25px;text-align:center;width:100%;">
-<h1 style="margin: 0; color: #555555; direction: ltr; font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 30px; font-weight: 400; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><strong>Hello Latim</strong></h1>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="heading_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:5px;padding-top:25px;text-align:center;width:100%;">
-<h2 style="margin: 0; color: #555555; direction: ltr; font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 20px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><strong>Thank you for contacting Kwetu Kiswahili Education Services </strong></h2>
+<h1 style="margin: 0; color: #555555; direction: ltr; font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 30px; font-weight: 400; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><strong>Hello Kwetu Admin</strong></h1>
 </td>
 </tr>
 </table>
@@ -138,12 +131,12 @@
 <td class="pad" style="padding-bottom:20px;padding-left:30px;padding-right:30px;padding-top:20px;">
 <div style="font-family: Tahoma, Verdana, sans-serif">
 <div class="" style="font-size: 14px; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 25.2px; color: #737487; line-height: 1.8;">
-<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><span style="font-size:18px;">Your message has been received, and we will respond to you as soon as we can. Here is your message in brief.</span></p>
+<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><span style="font-size:18px;">I have submitted a {{ contact_subject }} and I hope to feedback as soon as possible, thank you.</span></p>
 <p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 25.2px;"><span style="color:#0068a5;"><strong><span style="font-size:18px;">Message Summary</span></strong></span></p>
-<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Name: </span></strong><span style="font-size:18px;color:#737487;">Latim</span></p>
-<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Email: </span></strong><span style="font-size:18px;color:#0068a5;"><span style="color:#737487;">latrondav@gmail.com</span></span></p>
-<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Subject: </span></strong><span style="font-size:18px;color:#737487;">Test Subject</span></p>
-<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Message: </span></strong><span style="font-size:18px;color:#0068a5;"><span style="color:#737487;">Test Message</span></span></p>
+<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Name: </span></strong><span style="font-size:18px;color:#737487;">{{ contact_name }}</span></p>
+<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Email: </span></strong><span style="font-size:18px;color:#0068a5;"><span style="color:#737487;">{{ contact_email }}</span></span></p>
+<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Subject: </span></strong><span style="font-size:18px;color:#737487;">{{ contact_subject }}</span></p>
+<p style="margin: 0; font-size: 14px; text-align: justify; mso-line-height-alt: 32.4px;"><strong><span style="font-size:18px;color:#0068a5;">Message: </span></strong><span style="font-size:18px;color:#0068a5;"><span style="color:#737487;">{{ contact_message }}</span></span></p>
 </div>
 </div>
 </td>
@@ -171,7 +164,7 @@
 <div style="font-family: Tahoma, Verdana, sans-serif">
 <div class="" style="font-size: 14px; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 25.2px; color: #737487; line-height: 1.8;">
 <p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"><span style="color:#555555;"><strong><span style="font-size:18px;">Yours Sincerely,</span></strong></span></p>
-<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"><span style="color:#555555;"><strong><span style="font-size:18px;">Kwetu Contact Admin</span></strong></span></p>
+<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"><span style="color:#555555;"><strong><span style="font-size:18px;">{{ contact_name }}</span></strong></span></p>
 </div>
 </div>
 </td>
@@ -180,7 +173,7 @@
 <table border="0" cellpadding="0" cellspacing="0" class="image_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="padding-bottom:35px;padding-top:10px;width:100%;padding-right:0px;padding-left:0px;">
-<div align="center" class="alignment" style="line-height:10px"><img class="big" src="images/divider.png" style="display: block; height: auto; border: 0; width: 541px; max-width: 100%;" width="541"/></div>
+<div align="center" class="alignment" style="line-height:10px"><img class="big" src="cid:divider" style="display: block; height: auto; border: 0; width: 541px; max-width: 100%;" width="541"/></div>
 </td>
 </tr>
 </table>
@@ -201,12 +194,12 @@
 <div align="center" class="alignment">
 <table border="0" cellpadding="0" cellspacing="0" class="social-table" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block;" width="312px">
 <tr>
-<td style="padding:0 10px 0 10px;"><a href="https://www.facebook.com/" target="_blank"><img alt="Facebook" height="32" src="images/facebook2x.png" style="display: block; height: auto; border: 0;" title="Facebook" width="32"/></a></td>
-<td style="padding:0 10px 0 10px;"><a href="https://twitter.com/" target="_blank"><img alt="Twitter" height="32" src="images/twitter2x.png" style="display: block; height: auto; border: 0;" title="Twitter" width="32"/></a></td>
-<td style="padding:0 10px 0 10px;"><a href="https://instagram.com/" target="_blank"><img alt="Instagram" height="32" src="images/instagram2x.png" style="display: block; height: auto; border: 0;" title="Instagram" width="32"/></a></td>
-<td style="padding:0 10px 0 10px;"><a href="https://www.linkedin.com/" target="_blank"><img alt="LinkedIn" height="32" src="images/linkedin2x.png" style="display: block; height: auto; border: 0;" title="LinkedIn" width="32"/></a></td>
-<td style="padding:0 10px 0 10px;"><a href="https://www.youtube.com/" target="_blank"><img alt="YouTube" height="32" src="images/youtube2x.png" style="display: block; height: auto; border: 0;" title="YouTube" width="32"/></a></td>
-<td style="padding:0 10px 0 10px;"><a href="https://www.whatsapp.com" target="_blank"><img alt="WhatsApp" height="32" src="images/whatsapp2x.png" style="display: block; height: auto; border: 0;" title="WhatsApp" width="32"/></a></td>
+<td style="padding:0 10px 0 10px;"><a href="https://www.facebook.com/" target="_blank"><img alt="Facebook" height="32" src="cid:facebook" style="display: block; height: auto; border: 0;" title="Facebook" width="32"/></a></td>
+<td style="padding:0 10px 0 10px;"><a href="https://twitter.com/" target="_blank"><img alt="Twitter" height="32" src="cid:twitter" style="display: block; height: auto; border: 0;" title="Twitter" width="32"/></a></td>
+<td style="padding:0 10px 0 10px;"><a href="https://instagram.com/" target="_blank"><img alt="Instagram" height="32" src="cid:instagram" style="display: block; height: auto; border: 0;" title="Instagram" width="32"/></a></td>
+<td style="padding:0 10px 0 10px;"><a href="https://www.linkedin.com/" target="_blank"><img alt="LinkedIn" height="32" src="cid:linkedin" style="display: block; height: auto; border: 0;" title="LinkedIn" width="32"/></a></td>
+<td style="padding:0 10px 0 10px;"><a href="https://www.youtube.com/" target="_blank"><img alt="YouTube" height="32" src="cid:youtube" style="display: block; height: auto; border: 0;" title="YouTube" width="32"/></a></td>
+<td style="padding:0 10px 0 10px;"><a href="https://www.whatsapp.com" target="_blank"><img alt="WhatsApp" height="32" src="cid:whatsapp" style="display: block; height: auto; border: 0;" title="WhatsApp" width="32"/></a></td>
 </tr>
 </table>
 </div>
@@ -218,7 +211,7 @@
 <td class="pad">
 <div style="font-family: Tahoma, Verdana, sans-serif">
 <div class="" style="font-size: 14px; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 25.2px; color: #07113e; line-height: 1.8;">
-<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"><span style="color:#555555;"><strong>© 2022 Kwetu Kiswahili Education Services</strong></span></p>
+<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 25.2px;"><span style="color:#555555;"><strong>© 2023 Kwetu Kiswahili Education Services</strong></span></p>
 </div>
 </div>
 </td>

@@ -416,7 +416,7 @@ def contact(request):
         #to_list = [contact_admin_email, contact_email]
         #send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-        html_content = render_to_string('receiver-contact-email.html', {
+        html_content = render_to_string('receiver-contact-mail.html', {
             'contact_name': contact_name,
             'contact_email': contact_email,
             'contact_subject': contact_subject,
@@ -438,7 +438,7 @@ def contact(request):
         email.attach(whatsapp_data())
         email.send()
 
-        html_content = render_to_string('sender-contact-email.html', {
+        html_content = render_to_string('sender-contact-mail.html', {
             'contact_name': contact_name,
             'contact_email': contact_email,
             'contact_subject': contact_subject,
