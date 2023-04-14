@@ -51,17 +51,7 @@
                         <a href="/contact/" class="btn btn-sm btn-success" style="border-radius: 2rem;">Contact Us To Get Service</a>
                       </div>
 
-                      {% if user.is_superuser %}
-                        <div class="text-center mt-2">
-                          <a class="btn btn-sm btn-danger" style="border-radius: 2rem;" href="/deleteservice/{{ service.id }}/"> <strong>Delete Service</strong> </a>
-                        </div>
-                      {% elif user.is_staff %}
-                        <div class="text-center mt-2">
-                          <a class="btn btn-sm btn-danger" style="border-radius: 2rem;" href="/deleteservice/{{ service.id }}/"> <strong>Delete Service</strong> </a>
-                        </div>
-                      {% elif user.is_active %}
-                      {% else %}
-                      {% endif %}
+                      
 
                     </div>
                   </div>
@@ -71,15 +61,54 @@
 
             </div>
 
-            {% if user.is_superuser %}
-            <div class="text-center" style="margin-top: 10px;">
-              <button class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddNewServiceModal"> <strong>Add New Service</strong> </button>
-            </div>
-            {% elif user.is_staff %}
-            <div class="text-center" style="margin-top: 10px; border-radius: 2rem;">
-              <button class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddNewServiceModal"> <strong>Add New Service</strong> </button>
-            </div>
-            {% elif user.is_active %}
+            {% if user.profile.position == "Team Member" %}
+              <div class="text-center" style="margin-top: 10px;">
+                <button class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddNewServiceModal"> <strong>Add New Service</strong> </button>
+              </div>
+
+              <div class="table-responsive mt-5">
+                <table class="table">
+                  <thead>
+                    <tr class="text-center">
+                      <th scope="col">#</th>
+                      <th scope="col">Service Image</th>
+                      <th scope="col">Service Title</th>
+                      <th scope="col">Service Description</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for service in Services %}
+                    <tr class="text-center">
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <form action="/updateservice/{{ service.id }}/" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <td>
+                          <img src="{{ service.simage.url }}" alt="..." style="border-radius: 2rem; width: 75px; height: 75px;">
+                          <input type="file" class="form-control mt-2 text-center" style="border-radius: 2rem; width: 120px;"
+                            name="simage" id="simage">
+                        </td>
+                        <td>
+                          <input type="text" class="form-control text-center" style="border-radius: 2rem; width: fit-content;"
+                            name="stitle" id="stitle" value="{{ service.stitle }}">
+                        </td>
+                        <td>
+                          <textarea class="form-control text-center" style="border-radius: 2rem; width: fit-content;"
+                            name="sdescription" id="sdescription" rows="6">{{ service.sdescription }}</textarea>
+                        </td>
+                        <td>
+                          <button type="submit" class="btn btn-sm btn-info text-white" style="border-radius: 2rem; margin: 5px;">
+                            <strong>Edit</strong> </button>
+                      </form>
+                      <a class="btn btn-sm btn-danger" style="border-radius: 2rem; margin: 5px;"
+                        href="/deleteservice/{{ service.id }}/"> <strong>Delete</strong> </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
             {% else %}
             {% endif %}
 

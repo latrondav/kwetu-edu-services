@@ -75,6 +75,7 @@ def homesignup(request):
         user = User.objects.create_user(username=username, email=email, password=pass1)
         user.first_name = firstname.upper()
         user.last_name = lastname.upper()
+        user.is_active = False
         user.save()
 
         # Email Address Confirmation Email
@@ -266,6 +267,25 @@ def add_new_service(request):
     else:
         messages.error(request, "Failure To Add New Service, Please Contact Tech Team And Try Again Later.")
         return redirect('/services/')
+    
+def update_service(request, serviceid):
+    uservice = Service.objects.get(id=serviceid)
+    if request.method == 'POST':
+        uservice.stitle = request.POST['stitle']
+        uservice.sdescription = request.POST['sdescription']
+
+        if request.FILES.get('simage'):
+            uservice.simage = request.FILES.get('simage')
+
+        try:
+            uservice.save()
+            messages.success(request, 'Service Updated Successfully.')
+            return redirect('/services/')
+        except:
+            messages.error(request, 'Failed To Update Service, Please Contact Tech Team And Try Again Later.')
+            return redirect('/services/')
+    else:
+        return render(request, 'services.html')
     
 def delete_service(request, serviceid):
     if serviceid:
