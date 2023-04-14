@@ -37,21 +37,28 @@
       
             <div class="row">
 
-              {% for uevent in UEvents %}
-                <div class="col-md-6 d-flex align-items-stretch">
-                  <div class="card">
-                    <div class="card-img">
-                      <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                    </div>
-                    <div class="card-body" style="border-radius: 2rem;">
-                      <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
-                      <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
-                      <p class="card-text text-center">{{ uevent.edescription }}</p>
-                      <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+              {% if UEvents %}
+                {% for uevent in UEvents %}
+                  <div class="col-md-6 d-flex align-items-stretch">
+                    <div class="card">
+                      <div class="card-img">
+                        <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                      </div>
+                      <div class="card-body" style="border-radius: 2rem;">
+                        <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
+                        <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
+                        <p class="card-text text-center">{{ uevent.edescription }}</p>
+                        <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;">
+                            <strong>Join</strong> </a></div>
+                      </div>
                     </div>
                   </div>
+                {% endfor %}
+              {% else %}
+                <div class="col-md-12 text-center mb-5">
+                  <h4>No Upcoming Events, You Are A Team Member, Please Add An Upcoming Event</h4>
                 </div>
-              {% endfor %}
+              {% endif %}
       
               <div class="text-center">
                 <a class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddEventModal"> <strong>Add Upcoming Event</strong> </a>
@@ -200,21 +207,28 @@
       
             <div class="row">
 
-              {% for uevent in UEvents %}
-                <div class="col-md-6 d-flex align-items-stretch">
-                  <div class="card">
-                    <div class="card-img">
-                      <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                    </div>
-                    <div class="card-body" style="border-radius: 2rem;">
-                      <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
-                      <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
-                      <p class="card-text text-center">{{ uevent.edescription }}</p>
-                      <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+              {% if UEvents %}
+                {% for uevent in UEvents %}
+                  <div class="col-md-6 d-flex align-items-stretch">
+                    <div class="card">
+                      <div class="card-img">
+                        <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                      </div>
+                      <div class="card-body" style="border-radius: 2rem;">
+                        <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
+                        <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
+                        <p class="card-text text-center">{{ uevent.edescription }}</p>
+                        <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;">
+                            <strong>Join</strong> </a></div>
+                      </div>
                     </div>
                   </div>
+                {% endfor %}
+              {% else %}
+                <div class="col-md-12 text-center">
+                  <h4>No Upcoming Events, You Are A Team Member, Please Add An Upcoming Event</h4>
                 </div>
-              {% endfor %}
+              {% endif %}
       
               <div class="text-center">
                 <a class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddEventModal"> <strong>Add Upcoming Event</strong> </a>
@@ -363,23 +377,28 @@
             <div class="container" data-aos="fade-up">
         
               <div class="row">
-
-                {% for uevent in UEvents %}
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                      <div class="card-img">
-                        <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                      </div>
-                      <div class="card-body" style="border-radius: 2rem;">
-                        <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
-                        <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
-                        <p class="card-text text-center">{{ uevent.edescription }}</p>
-                        <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+                {% if UEvents %}
+                  {% for uevent in UEvents %}
+                    <div class="col-md-6 d-flex align-items-stretch">
+                      <div class="card">
+                        <div class="card-img">
+                          <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                        </div>
+                        <div class="card-body" style="border-radius: 2rem;">
+                          <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
+                          <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
+                          <p class="card-text text-center">{{ uevent.edescription }}</p>
+                          <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+                        </div>
                       </div>
                     </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="col-md-12 text-center">
+                    <h4>No Upcoming Events, Please Add An Upcoming Event</h4>
                   </div>
-                {% endfor %}
-        
+                {% endif %}
+                
                 <div class="text-center">
                   <a class="btn btn-primary" style="border-radius: 2rem;" data-toggle="modal" data-target="#AddEventModal"> <strong>Add Upcoming Event</strong> </a>
                 </div>
@@ -508,22 +527,27 @@
             <div class="container" data-aos="fade-up">
         
               <div class="row">
-
-                {% for uevent in UEvents %}
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                      <div class="card-img">
-                        <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                      </div>
-                      <div class="card-body" style="border-radius: 2rem;">
-                        <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
-                        <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
-                        <p class="card-text text-center">{{ uevent.edescription }}</p>
-                        <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+                {% if UEvents %}
+                  {% for uevent in UEvents %}
+                    <div class="col-md-6 d-flex align-items-stretch">
+                      <div class="card">
+                        <div class="card-img">
+                          <img src="{{ uevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                        </div>
+                        <div class="card-body" style="border-radius: 2rem;">
+                          <h5 class="card-title"><a href="">{{ uevent.ename }}</a></h5>
+                          <p class="fst-italic text-center">{{ uevent.edate }} at {{ uevent.etime }}</p>
+                          <p class="card-text text-center">{{ uevent.edescription }}</p>
+                          <div class="text-center"><a href="{{ uevent.elink }}" class="btn btn-success" style="border-radius: 2rem;"> <strong>Join</strong> </a></div>
+                        </div>
                       </div>
                     </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="col-md-12 text-center">
+                    <h4>No Upcoming Events, Coming Soon.</h4>
                   </div>
-                {% endfor %}
+                {% endif %}
                 
               </div>
               

@@ -35,41 +35,46 @@
           <div class="container" data-aos="fade-up">
       
             <div class="row">
-
-              {% for pevent in PEvents %}
-                <div class="col-md-6 d-flex align-items-stretch">
-                  <div class="card">
-                    <div class="card-img">
-                      <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                    </div>
-                    <div class="card-body" style="border-radius: 2rem;">
-                      <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
-                      <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
-                      <p class="card-text text-center">{{ pevent.edescription }}</p>
-
-                      <div class="text-center mt-2">
-                        {% if pevent.eparlink %}
-                          <audio controls>
-                            <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                          </audio>
-                        {% else %}
-                          <p>No Audio File</p>
-                        {% endif %}
+              {% if PEvents %}
+                {% for pevent in PEvents %}
+                  <div class="col-md-6 d-flex align-items-stretch">
+                    <div class="card">
+                      <div class="card-img">
+                        <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
                       </div>
-                      
-                      <div class="text-center mt-2">
-                        {% if pevent.epytlink %}
-                          <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
-                        {% else %}
-                          <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
-                        {% endif %}
-                      </div>
+                      <div class="card-body" style="border-radius: 2rem;">
+                        <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
+                        <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
+                        <p class="card-text text-center">{{ pevent.edescription }}</p>
 
+                        <div class="text-center mt-2">
+                          {% if pevent.eparlink %}
+                            <audio controls>
+                              <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
+                              Your browser does not support the audio element.
+                            </audio>
+                          {% else %}
+                            <p>No Audio File</p>
+                          {% endif %}
+                        </div>
+                        
+                        <div class="text-center mt-2">
+                          {% if pevent.epytlink %}
+                            <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
+                          {% else %}
+                            <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
+                          {% endif %}
+                        </div>
+
+                      </div>
                     </div>
                   </div>
+                {% endfor %}
+              {% else %}
+                <div class="col-md-12 text-center mb-5">
+                  <h4>No Past Events Yet, Check Out Upcoming Events</h4>
                 </div>
-              {% endfor %}
+              {% endif %}
 
             </div>
 
@@ -154,40 +159,48 @@
       
             <div class="row">
 
-              {% for pevent in PEvents %}
-                <div class="col-md-6 d-flex align-items-stretch">
-                  <div class="card">
-                    <div class="card-img">
-                      <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                    </div>
-                    <div class="card-body" style="border-radius: 2rem;">
-                      <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
-                      <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
-                      <p class="card-text text-center">{{ pevent.edescription }}</p>
-
-                      <div class="text-center mt-2">
-                        {% if pevent.eparlink %}
+              {% if PEvents %}
+                {% for pevent in PEvents %}
+                  <div class="col-md-6 d-flex align-items-stretch">
+                    <div class="card">
+                      <div class="card-img">
+                        <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                      </div>
+                      <div class="card-body" style="border-radius: 2rem;">
+                        <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
+                        <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
+                        <p class="card-text text-center">{{ pevent.edescription }}</p>
+                  
+                        <div class="text-center mt-2">
+                          {% if pevent.eparlink %}
                           <audio controls>
                             <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
                             Your browser does not support the audio element.
                           </audio>
-                        {% else %}
+                          {% else %}
                           <p>No Audio File</p>
-                        {% endif %}
+                          {% endif %}
+                        </div>
+                  
+                        <div class="text-center mt-2">
+                          {% if pevent.epytlink %}
+                          <a href="{{ pevent.epytlink }}" class="btn btn-success"
+                            style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
+                          {% else %}
+                          <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To
+                              Watch</strong> </button>
+                          {% endif %}
+                        </div>
+                  
                       </div>
-                      
-                      <div class="text-center mt-2">
-                        {% if pevent.epytlink %}
-                          <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
-                        {% else %}
-                          <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
-                        {% endif %}
-                      </div>
-
                     </div>
                   </div>
+                {% endfor %}
+              {% else %}
+                <div class="col-md-12 text-center mb-5">
+                  <h4>No Past Events Yet, Check Out Upcoming Events</h4>
                 </div>
-              {% endfor %}
+              {% endif %}
 
             </div>
 
@@ -274,40 +287,48 @@
         
               <div class="row">
 
-                {% for pevent in PEvents %}
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                      <div class="card-img">
-                        <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                      </div>
-                      <div class="card-body" style="border-radius: 2rem;">
-                        <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
-                        <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
-                        <p class="card-text text-center">{{ pevent.edescription }}</p>
-
-                        <div class="text-center mt-2">
-                          {% if pevent.eparlink %}
+                {% if PEvents %}
+                  {% for pevent in PEvents %}
+                    <div class="col-md-6 d-flex align-items-stretch">
+                      <div class="card">
+                        <div class="card-img">
+                          <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                        </div>
+                        <div class="card-body" style="border-radius: 2rem;">
+                          <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
+                          <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
+                          <p class="card-text text-center">{{ pevent.edescription }}</p>
+                    
+                          <div class="text-center mt-2">
+                            {% if pevent.eparlink %}
                             <audio controls>
                               <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
                               Your browser does not support the audio element.
                             </audio>
-                          {% else %}
+                            {% else %}
                             <p>No Audio File</p>
-                          {% endif %}
+                            {% endif %}
+                          </div>
+                    
+                          <div class="text-center mt-2">
+                            {% if pevent.epytlink %}
+                            <a href="{{ pevent.epytlink }}" class="btn btn-success"
+                              style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
+                            {% else %}
+                            <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To
+                                Watch</strong> </button>
+                            {% endif %}
+                          </div>
+                    
                         </div>
-                        
-                        <div class="text-center mt-2">
-                          {% if pevent.epytlink %}
-                            <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
-                          {% else %}
-                            <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
-                          {% endif %}
-                        </div>
-
                       </div>
                     </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="col-md-12 text-center mb-5">
+                    <h4>No Past Events Yet, Check Out Upcoming Events</h4>
                   </div>
-                {% endfor %}
+                {% endif %}
 
               </div>
 
@@ -376,40 +397,48 @@
         
               <div class="row">
 
-                {% for pevent in PEvents %}
-                  <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card">
-                      <div class="card-img">
-                        <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
-                      </div>
-                      <div class="card-body" style="border-radius: 2rem;">
-                        <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
-                        <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
-                        <p class="card-text text-center">{{ pevent.edescription }}</p>
-
-                        <div class="text-center mt-2">
-                          {% if pevent.eparlink %}
+                {% if PEvents %}
+                  {% for pevent in PEvents %}
+                    <div class="col-md-6 d-flex align-items-stretch">
+                      <div class="card">
+                        <div class="card-img">
+                          <img src="{{ pevent.eimage.url }}" alt="..." style="border-radius: 2rem;">
+                        </div>
+                        <div class="card-body" style="border-radius: 2rem;">
+                          <h5 class="card-title"><a href="">{{ pevent.ename }}</a></h5>
+                          <p class="fst-italic text-center">{{ pevent.edate }} at {{ pevent.etime }}</p>
+                          <p class="card-text text-center">{{ pevent.edescription }}</p>
+                    
+                          <div class="text-center mt-2">
+                            {% if pevent.eparlink %}
                             <audio controls>
                               <source src="{{ pevent.eparlink.url }}" type="audio/mpeg">
                               Your browser does not support the audio element.
                             </audio>
-                          {% else %}
+                            {% else %}
                             <p>No Audio File</p>
-                          {% endif %}
+                            {% endif %}
+                          </div>
+                    
+                          <div class="text-center mt-2">
+                            {% if pevent.epytlink %}
+                            <a href="{{ pevent.epytlink }}" class="btn btn-success"
+                              style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
+                            {% else %}
+                            <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To
+                                Watch</strong> </button>
+                            {% endif %}
+                          </div>
+                    
                         </div>
-                        
-                        <div class="text-center mt-2">
-                          {% if pevent.epytlink %}
-                            <a href="{{ pevent.epytlink }}" class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;"><strong>Watch Lesson</strong> </a>
-                          {% else %}
-                            <button class="btn btn-success" style="margin-left: 2px; border-radius: 2rem;" disabled><strong>No Lesson To Watch</strong> </button>
-                          {% endif %}
-                        </div>
-
                       </div>
                     </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="col-md-12 text-center mb-5">
+                    <h4>No Past Events Yet, Check Out Upcoming Events</h4>
                   </div>
-                {% endfor %}
+                {% endif %}
 
               </div>
             </div>
