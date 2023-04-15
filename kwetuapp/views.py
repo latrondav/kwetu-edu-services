@@ -205,12 +205,12 @@ def reactivate(request, uidb64, token):
         return redirect('/')
 
 def about(request):
-    num_members = User.objects.count()
+    num_members = User.objects.exclude(id=1).count()
     num_students = Profile.objects.filter(position="Student").count()
     num_upcoming_events = Event.objects.filter(Q(edate__gte=datetime.date.today()) | Q(edate=datetime.date.today(), etime__gte=datetime.datetime.now().time())).count()
     num_past_events = Event.objects.filter(Q(edate__lt=datetime.datetime.now().date()) | Q(edate=datetime.datetime.now().date(), etime__lt=datetime.datetime.now().time())).count()
     num_services = Service.objects.count()
-    num_team_members = Profile.objects.filter(position="Team Member").count()
+    num_team_members = Profile.objects.filter(position="Team Member").exclude(user=1).count()
 
     context = {
         'num_members': num_members,
@@ -299,7 +299,7 @@ def delete_service(request, serviceid):
 
 def team(request):
     context = {
-        'TeamMates' : Profile.objects.filter(position="Team Member"),
+        'TeamMates' : Profile.objects.filter(position="Team Member").exclude(user=1),
     }
     return render(request, 'team.html', context)
 
@@ -401,7 +401,7 @@ def delete_past_event(request, peventid):
 
 def members(request):
     context={
-        'Members': User.objects.all()
+        'Members': User.objects.all().exclude(id=1)
     }
     return render(request, 'members.html', context)
 
@@ -426,7 +426,7 @@ def contact(request):
         contact_email = request.POST['contact_email']
         contact_subject = request.POST['contact_subject']
         contact_message = request.POST['contact_message']
-        contact_admin_email = "latrondav@gmail.com"
+        contact_admin_email = "info@kwetukiswahiliservices.com"
 
         # Contact Email
 
