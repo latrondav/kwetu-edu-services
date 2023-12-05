@@ -2,11 +2,25 @@
 
 Dear {{ name }},
 
-You account was deactivated because you changed your email,so to reactivate your account on KWETU, complete the process below,
+We hope this message finds you well. It appears that your Kwetu Mradi account was deactivated due to a recent email
+change.
+Not to worry, we're here to help you reactivate it seamlessly.
 
-Reactivation Link: http://{{ domain }}{% url 'reactivate' uidb64=uid token=token %}
+To reactivate your account and regain access to Kwetu Mradi, please complete the reactivation process by clicking on the
+link
+below:
 
-Yours Sincerely,
-KWETU ADMIN
+Reactivation Link: {{ protocol }}://{{ domain }}{% url 'reactivate' uidb64=uid token=token %}
+
+This step will ensure that you can continue enjoying the benefits of our platform hassle-free.
+
+If you have any questions or encounter any issues during this process, please don't hesitate to contact our support team
+at info@kwetukiswahiliservices.com. We're here to assist you every step of the way.
+
+We value your presence within our community and look forward to welcoming you back to Kwetu Mradi.
+
+Warm regards,
+
+Kwetu Admin
 
 {% endautoescape %}

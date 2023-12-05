@@ -80,9 +80,10 @@ def homesignup(request):
 
         # Email Address Confirmation Email
         current_site = get_current_site(request)
-        email_subject = "KWETU WELCOME AND ACCOUNT CONFIRMATION"
+        email_subject = "Welcome To Kwetu Mradi!"
         message = render_to_string('email_confirmation.html', {
            'name': user.first_name,
+           'protocol': "https" if request.is_secure() else "http",
            'domain': current_site.domain,
            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
            'token': generate_token.make_token(user)
@@ -139,9 +140,10 @@ def update_profile(request):
 
                 # send email to the new email address for reactivation
                 current_site = get_current_site(request)
-                email_subject = "KWETU REACTIVATION EMAIL"
+                email_subject = "Reactivate Your Kwetu Mradi Account"
                 message = render_to_string('email_reactivation.html', {
                     'name': user.first_name,
+                    'protocol': "https" if request.is_secure() else "http",
                     'domain': current_site.domain,
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                     'token': generate_token.make_token(user)

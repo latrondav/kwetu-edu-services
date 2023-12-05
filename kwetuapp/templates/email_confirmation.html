@@ -1,14 +1,22 @@
 {% autoescape off %}
 
-Welcome to Kwetu Mradi.
+Dear {{ name }},
 
-Hello {{ name }}!
+Welcome to Kwetu Mradi! We're thrilled to have you join our community.
 
-please confirm your email by clicking on the following link.
+To get started, we kindly ask you to confirm your email address by clicking on the link below:
 
-Confirmation Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+Confirmation Link: {{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}
 
-Yours Sincerely,
+This step is essential to ensure your account security and full access to our platform's features.
+
+Should you have any questions or need assistance, please don't hesitate to reach out to our support team at
+info@kwetukiswahiliservices.com.
+
+We're excited to have you on board and look forward to the journey ahead!
+
+Warm regards,
+
 Kwetu Admin
 
 {% endautoescape %}
