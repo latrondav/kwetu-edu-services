@@ -90,7 +90,7 @@ def homesignup(request):
         email = EmailMessage(
            email_subject,
            message,
-           settings.EMAIL_HOST_USER,
+           settings.EMAIL_USER,
            [user.email],
         )
         email.fail_silently = True
@@ -149,7 +149,7 @@ def update_profile(request):
                 email = EmailMessage(
                     email_subject,
                     message,
-                    settings.EMAIL_HOST_USER,
+                    settings.EMAIL_USER,
                     [user.email],
                 )
                 email.fail_silently = True
@@ -447,7 +447,7 @@ def contact(request):
         email = EmailMultiAlternatives(
             subject,
             text_content,
-            settings.EMAIL_HOST_USER,
+            settings.EMAIL_USER,
             [contact_admin_email,]
         )
         email.mixed_subtype = 'related'
